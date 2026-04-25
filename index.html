@@ -28,7 +28,8 @@
     "knowsAbout": [
       "Node.js", "TypeScript", "JavaScript", "AWS", "Microservices",
       "Event-Driven Systems", "GraphQL", "Distributed Systems", "Kafka",
-      "DynamoDB", "Lambda", "ECS", "Docker", "OpenTelemetry", "GDPR", "CCPA"
+      "DynamoDB", "Lambda", "ECS", "Docker", "OpenTelemetry", "GDPR", "CCPA",
+      "Amazon Bedrock", "Kafka", "Redis", "GraphQL"
     ]
   }
   </script>
@@ -254,6 +255,33 @@
     .earlier-role { font-size: 0.875rem; color: var(--text); line-height: 1.6; }
     .earlier-role strong { color: var(--text); }
     .earlier-role .er-meta { color: var(--muted); }
+
+    .card-opensource {
+      border: 1px solid var(--accent2);
+      border-radius: var(--radius);
+      padding: 2rem;
+      background: var(--surface);
+    }
+    .card-opensource .card-company { color: var(--accent2); }
+
+    /* ============================================================
+       LANGUAGES
+    ============================================================ */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .lang-name { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
+    .lang-level { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+
+    /* ============================================================
+       VOLUNTEER
+    ============================================================ */
+    .vol-list { display: flex; flex-direction: column; gap: 1rem; }
+    .vol-org { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
+    .vol-role { font-size: 0.875rem; color: var(--muted); }
+    .vol-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
 
     /* ============================================================
        ARCHITECTURE
@@ -534,6 +562,21 @@
             </div>
           </article>
 
+          <article class="card-opensource fade-in-el" aria-labelledby="card-oss">
+            <header class="card-header">
+              <span class="card-company" id="card-oss">Open Source</span>
+              <span class="card-role">Full Budget App</span>
+              <span class="card-dates">Aug 2025 &middot; Personal project</span>
+            </header>
+            <p class="card-context">Serverless FinTech platform built to explore multi-tenant architecture, AI-assisted categorisation, and event-driven data flows on AWS.</p>
+            <ul class="card-outcomes">
+              <li>Serverless architecture on <strong>AWS Lambda, DynamoDB, S3, SQS</strong> — zero-server, pay-per-request design.</li>
+              <li>Tenant-aware <strong>GraphQL API</strong> with isolated data boundaries per user/organisation.</li>
+              <li>AI-powered transaction classification via <strong>Amazon Bedrock</strong>; zero manual tagging for common spend patterns.</li>
+              <li>Event-driven pipeline: SQS triggers Lambda workers that classify, enrich, and persist transactions asynchronously.</li>
+            </ul>
+          </article>
+
         </div>
       </div>
     </section>
@@ -773,6 +816,7 @@
               <span class="chip" role="listitem">GitHub Actions</span>
               <span class="chip" role="listitem">CircleCI</span>
               <span class="chip" role="listitem">IaC (CDK / CloudFormation)</span>
+              <span class="chip" role="listitem">Amazon Bedrock</span>
             </div>
           </div>
           <div class="skill-group fade-in-el">
@@ -901,6 +945,25 @@
             <span class="cert-period">(2021) &mdash; Udemy</span>
           </li>
         </ul>
+
+        <details class="skill-years fade-in-el" style="margin-top:1.5rem">
+          <summary>Additional courses &amp; licences</summary>
+          <table>
+            <thead><tr><th>Course</th><th>Issued</th><th>Provider</th></tr></thead>
+            <tbody>
+              <tr><td>Java Memory Management</td><td>Dec 2019</td><td>LinkedIn</td></tr>
+              <tr><td>Kafka Essential Training</td><td>Dec 2019</td><td>LinkedIn</td></tr>
+              <tr><td>AWS for Developers: Data-Driven Serverless Apps with Kinesis</td><td>Oct 2019</td><td>LinkedIn</td></tr>
+              <tr><td>Advanced Node.js: Scaling Applications</td><td>Sep 2019</td><td>LinkedIn</td></tr>
+              <tr><td>Programming Foundations: Design Patterns</td><td>Jun 2019</td><td>LinkedIn</td></tr>
+              <tr><td>Node.js: Security</td><td>Apr 2019</td><td>LinkedIn</td></tr>
+              <tr><td>The Complete Developer&apos;s Guide (Golang)</td><td>Feb 2019</td><td>Udemy</td></tr>
+              <tr><td>Node JS: Advanced Concepts</td><td>Oct 2018</td><td>Udemy</td></tr>
+              <tr><td>Learn Blockchain by Building Your Own in JavaScript</td><td>Aug 2018</td><td>Udemy</td></tr>
+              <tr><td>Node.js: The Complete Guide to Build RESTful APIs</td><td>Jun 2018</td><td>Udemy</td></tr>
+            </tbody>
+          </table>
+        </details>
       </div>
     </section>
 
@@ -918,6 +981,55 @@
             <div class="edu-degree">Bachelor of Computer Applications</div>
             <div class="edu-school">Gauhati University, Assam</div>
             <div class="edu-period">Aug 2009 &ndash; Aug 2012</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. LANGUAGES -->
+    <section id="languages" aria-labelledby="lang-h2">
+      <div class="container">
+        <h2 id="lang-h2" class="fade-in-el">Languages</h2>
+        <div class="lang-grid">
+          <div class="fade-in-el">
+            <div class="lang-name">Bengali</div>
+            <div class="lang-level">Native or bilingual proficiency</div>
+          </div>
+          <div class="fade-in-el">
+            <div class="lang-name">English</div>
+            <div class="lang-level">Full professional proficiency</div>
+          </div>
+          <div class="fade-in-el">
+            <div class="lang-name">Hindi</div>
+            <div class="lang-level">Limited working proficiency</div>
+          </div>
+          <div class="fade-in-el">
+            <div class="lang-name">Assamese</div>
+            <div class="lang-level">Limited working proficiency</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. VOLUNTEER -->
+    <section id="volunteer" aria-labelledby="vol-h2">
+      <div class="container">
+        <h2 id="vol-h2" class="fade-in-el">Volunteer</h2>
+        <div class="vol-list">
+          <div class="fade-in-el">
+            <div class="vol-org">WWF-India</div>
+            <div class="vol-role">Volunteer &mdash; Environment</div>
+            <div class="vol-meta">Jun 2018 &mdash; Present</div>
+          </div>
+          <div class="fade-in-el">
+            <div class="vol-org">UNICEF</div>
+            <div class="vol-role">Volunteer &mdash; Health</div>
+            <div class="vol-meta">Jan 2021 &mdash; Jan 2024</div>
+          </div>
+          <div class="fade-in-el">
+            <div class="vol-org">Red Cross Blood Services</div>
+            <div class="vol-role">Volunteer &mdash; Health</div>
+            <div class="vol-meta">Feb 2015 &mdash; Mar 2016</div>
           </div>
         </div>
       </div>
