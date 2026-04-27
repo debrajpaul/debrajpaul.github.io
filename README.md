@@ -16,7 +16,7 @@ Single-file, dark-mode-default static site built from scratch. No frameworks, no
 
 - Plain HTML5 + inline CSS + vanilla ES2020 JS — one file: `index.html`
 - System font stack only — no remote fonts
-- Two inline SVGs for architecture deep-dives + one prose walkthrough — no Mermaid, no D3
+- One inline SVG for architecture deep-dive (Privacy/PII Orchestrator) + two prose walkthroughs — no Mermaid, no D3
 - `IntersectionObserver` for scroll-triggered fade-ins
 - `prefers-color-scheme` for automatic dark / light theming
 - `prefers-reduced-motion` respected
@@ -32,7 +32,7 @@ Single-file, dark-mode-default static site built from scratch. No frameworks, no
 | 2 | By the numbers | 4 hard-metric stat tiles |
 | 3 | Open to | Availability / relocation callout |
 | 4 | Selected work | Global media platform · Swiggy Dineout · PT Tujuh Asia · earlier roles · Full Budget App (open source) |
-| 5 | Architecture deep-dives | Privacy/PII Orchestrator (SVG) · Async Moderation Platform (prose) · Backfill Search-Indexing Pipeline (SVG) |
+| 5 | Architecture deep-dives | Privacy/PII Orchestrator (SVG) · Async Moderation Platform (prose) · Backfill Search-Indexing Pipeline (prose) |
 | 6 | Experience | Vertical timeline of all 7 roles |
 | 7 | Skills | Chip groups across 9 categories + years-of-evidence table |
 | 8 | Certifications | AWS, Apollo GraphQL, Udemy + 10 LinkedIn courses |
