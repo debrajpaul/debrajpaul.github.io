@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V7
+.Trashes
+
+# Claude Code internal memory / session files
+.claude/
+
+# Editor
+.vscode/settings.json
+*.swp
+*.swo
+*.orig
+
+# Node (if build tooling is ever introduced)
+node_modules/
+npm-debug.log*
+yarn-error.log
+
+# Environment / secrets
+.env
+.env.*
+
+# Logs
+*.log
+
+# OS
+Thumbs.db

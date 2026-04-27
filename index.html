@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Debraj Paul &#8212; Senior Backend / Platform Engineer (Node.js &middot; TypeScript &middot; AWS)</title>
-  <meta name="description" content="Senior Platform / Backend Engineer with 10+ years building distributed, event-driven systems on AWS. Open to remote worldwide and hybrid in India or work-life-balance-first countries (Europe, Australia, New Zealand)." />
+  <meta name="description" content="Senior Platform / Backend Engineer with 10+ years building distributed, event-driven systems on AWS. Remote-first globally, hybrid in India, open to relocation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://debrajpaul.github.io/" />
   <meta property="og:title" content="Debraj Paul &#8212; Senior Backend / Platform Engineer" />
-  <meta property="og:description" content="Senior Platform / Backend Engineer with 10+ years building distributed, event-driven systems on AWS. Open to remote worldwide and hybrid in India or work-life-balance-first countries (Europe, Australia, New Zealand)." />
+  <meta property="og:description" content="Senior Platform / Backend Engineer with 10+ years building distributed, event-driven systems on AWS. Remote-first globally, hybrid in India, open to relocation." />
   <meta property="og:site_name" content="Debraj Paul" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Debraj Paul &#8212; Senior Backend / Platform Engineer" />
-  <meta name="twitter:description" content="Senior Platform / Backend Engineer with 10+ years building distributed, event-driven systems on AWS. Open to remote worldwide and hybrid in India or work-life-balance-first countries (Europe, Australia, New Zealand)." />
+  <meta name="twitter:description" content="Senior Platform / Backend Engineer with 10+ years building distributed, event-driven systems on AWS. Remote-first globally, hybrid in India, open to relocation." />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,16 +26,16 @@
       "https://www.linkedin.com/in/debraj-paul"
     ],
     "knowsAbout": [
-      "Node.js", "TypeScript", "JavaScript", "AWS", "Microservices",
-      "Event-Driven Systems", "GraphQL", "Distributed Systems", "Kafka",
-      "DynamoDB", "Lambda", "ECS", "Docker", "OpenTelemetry", "GDPR", "CCPA",
-      "Amazon Bedrock", "Kafka", "Redis", "GraphQL"
+      "Node.js","TypeScript","JavaScript","AWS","Microservices",
+      "Event-Driven Systems","GraphQL","Distributed Systems","Kafka",
+      "DynamoDB","Lambda","ECS","Docker","OpenTelemetry","GDPR","CCPA",
+      "Amazon Bedrock","Redis","OpenSearch","AWS Glue"
     ]
   }
   </script>
   <style>
     /* ============================================================
-       CSS CUSTOM PROPERTIES
+       CUSTOM PROPERTIES
     ============================================================ */
     :root {
       --bg:       #0a0a0b;
@@ -48,9 +48,8 @@
       --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
       --max-w: 1100px;
-      --radius: 4px;
+      --r: 4px;
     }
-
     @media (prefers-color-scheme: light) {
       :root {
         --bg:      #ffffff;
@@ -64,22 +63,15 @@
     }
 
     /* ============================================================
-       RESET & BASE
+       RESET
     ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     h1, h2, h3, h4 { line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; }
-    h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 2rem; color: var(--text); }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 2rem; }
     ul { list-style: none; }
 
     /* ============================================================
@@ -92,255 +84,121 @@
     /* ============================================================
        SKIP LINK
     ============================================================ */
-    .skip-link {
-      position: absolute; top: -100%; left: 1rem;
-      background: var(--accent); color: #fff;
-      padding: 0.5rem 1rem; border-radius: var(--radius);
-      font-size: 0.875rem; z-index: 9999;
-    }
+    .skip-link { position: absolute; top: -100%; left: 1rem; background: var(--accent); color: #fff; padding: 0.5rem 1rem; border-radius: var(--r); font-size: 0.875rem; z-index: 9999; }
     .skip-link:focus { top: 1rem; }
 
     /* ============================================================
        NAV
     ============================================================ */
-    .site-nav {
-      position: sticky; top: 0; z-index: 100;
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 56px;
-      width: min(var(--max-w), 100% - 2rem);
-      margin-inline: auto;
-    }
-    .nav-logo {
-      font-family: var(--font-mono); font-size: 0.875rem;
-      font-weight: 600; color: var(--text); letter-spacing: 0.05em;
-    }
+    .site-nav { position: sticky; top: 0; z-index: 100; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; width: min(var(--max-w), 100% - 2rem); margin-inline: auto; }
+    .nav-logo { font-family: var(--font-mono); font-size: 0.875rem; font-weight: 600; color: var(--text); letter-spacing: 0.05em; }
     .nav-logo:hover { text-decoration: none; color: var(--accent); }
     .nav-links { display: flex; align-items: center; gap: 1.75rem; }
     .nav-links a { font-size: 0.8125rem; color: var(--muted); transition: color 0.15s; }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
-    .nav-links .nav-cta {
-      color: var(--accent); border: 1px solid var(--accent);
-      padding: 0.25rem 0.75rem; border-radius: var(--radius);
-      font-size: 0.8125rem; transition: background 0.15s, color 0.15s;
-    }
-    .nav-links .nav-cta:hover { background: var(--accent); color: #fff; text-decoration: none; }
-    @media (max-width: 600px) {
-      .nav-links { gap: 1rem; }
-      .nav-links a:not(.nav-cta) { display: none; }
-    }
+    .nav-cta { color: var(--accent) !important; border: 1px solid var(--accent); padding: 0.25rem 0.75rem; border-radius: var(--r); transition: background 0.15s, color 0.15s !important; }
+    .nav-cta:hover { background: var(--accent); color: #fff !important; }
+    @media (max-width: 600px) { .nav-links { gap: 1rem; } .nav-links a:not(.nav-cta) { display: none; } }
 
     /* ============================================================
        HERO
     ============================================================ */
     .section-hero { padding-block: 7rem 5rem; position: relative; overflow: hidden; }
-    .hero-glow {
-      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 700px; height: 300px;
-      background: radial-gradient(ellipse at center, rgba(124, 92, 255, 0.1) 0%, transparent 70%);
-      pointer-events: none; z-index: 0;
-    }
+    .hero-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 300px; background: radial-gradient(ellipse at center, rgba(124,92,255,0.1) 0%, transparent 70%); pointer-events: none; z-index: 0; }
     .section-hero .container { position: relative; z-index: 1; }
-    .eyebrow {
-      font-family: var(--font-mono); font-size: 0.75rem;
-      text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--muted); margin-bottom: 1rem;
-    }
-    .section-hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.5rem);
-      font-weight: 600; color: var(--text); margin-bottom: 0.75rem;
-    }
-    .hero-tagline {
-      font-size: clamp(1rem, 2.5vw, 1.375rem); color: var(--muted);
-      font-weight: 400; margin-bottom: 1.5rem; line-height: 1.4;
-    }
-    .hero-positioning {
-      max-width: 640px; color: var(--muted); font-size: 1rem;
-      margin-bottom: 2.5rem; line-height: 1.65;
-    }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 1rem; }
+    .section-hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 600; color: var(--text); margin-bottom: 0.75rem; }
+    .hero-tagline { font-size: clamp(1rem, 2.5vw, 1.375rem); color: var(--muted); font-weight: 400; margin-bottom: 1.5rem; line-height: 1.4; }
+    .hero-pos { max-width: 640px; color: var(--muted); font-size: 1rem; margin-bottom: 2.5rem; line-height: 1.65; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .btn-primary {
-      display: inline-block; background: var(--accent); color: #fff;
-      padding: 0.6rem 1.25rem; border-radius: var(--radius);
-      font-size: 0.875rem; font-weight: 500; transition: opacity 0.15s;
-    }
+    .btn-primary { display: inline-block; background: var(--accent); color: #fff; padding: 0.6rem 1.25rem; border-radius: var(--r); font-size: 0.875rem; font-weight: 500; transition: opacity 0.15s; }
     .btn-primary:hover { opacity: 0.85; text-decoration: none; }
-    .btn-secondary {
-      display: inline-block; border: 1px solid var(--border); color: var(--text);
-      padding: 0.6rem 1.25rem; border-radius: var(--radius);
-      font-size: 0.875rem; font-weight: 500; transition: border-color 0.15s, color 0.15s;
-    }
+    .btn-secondary { display: inline-block; border: 1px solid var(--border); color: var(--text); padding: 0.6rem 1.25rem; border-radius: var(--r); font-size: 0.875rem; font-weight: 500; transition: border-color 0.15s; }
     .btn-secondary:hover { border-color: var(--muted); text-decoration: none; }
 
     /* ============================================================
-       METRICS STRIP
+       METRICS
     ============================================================ */
     .section-metrics { padding-block: 3.5rem; }
-    .metrics-strip {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      border: 1px solid var(--border); border-radius: var(--radius);
-      overflow: hidden; margin-bottom: 1.5rem;
-    }
+    .metrics-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; margin-bottom: 1.5rem; }
     .metric { padding: 1.75rem 1.5rem; border-right: 1px solid var(--border); }
     .metric:last-child { border-right: none; }
-    @media (max-width: 700px) {
-      .metric { border-right: none; border-bottom: 1px solid var(--border); }
-      .metric:last-child { border-bottom: none; }
-    }
-    .metric-number {
-      display: block; font-size: clamp(1.75rem, 4vw, 2.25rem);
-      font-weight: 600; color: var(--accent); font-family: var(--font-mono);
-      line-height: 1; margin-bottom: 0.4rem;
-    }
+    @media (max-width: 700px) { .metric { border-right: none; border-bottom: 1px solid var(--border); } .metric:last-child { border-bottom: none; } }
+    .metric-number { display: block; font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 600; color: var(--accent); font-family: var(--font-mono); line-height: 1; margin-bottom: 0.4rem; }
     .metric-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
     .metric-sub { display: block; font-size: 0.75rem; color: var(--muted); font-family: var(--font-mono); }
-    .compliance-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-    .c-chip {
-      font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);
-      border: 1px solid var(--border); padding: 0.2rem 0.6rem;
-      border-radius: 2px; letter-spacing: 0.04em;
-    }
+    .c-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .c-chip { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); border: 1px solid var(--border); padding: 0.2rem 0.6rem; border-radius: 2px; letter-spacing: 0.04em; }
 
     /* ============================================================
        OPEN TO
     ============================================================ */
     .section-open-to { padding-block: 2.5rem; }
-    .callout-open {
-      border-left: 2px solid var(--accent2);
-      padding: 1rem 1.25rem;
-      background: color-mix(in srgb, var(--accent2) 5%, transparent);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      font-size: 0.9375rem; color: var(--text); line-height: 1.7;
-    }
+    .callout-open { border-left: 2px solid var(--accent2); padding: 1rem 1.25rem; background: color-mix(in srgb, var(--accent2) 5%, transparent); border-radius: 0 var(--r) var(--r) 0; font-size: 0.9375rem; color: var(--text); line-height: 1.8; }
     .callout-open strong { color: var(--accent2); }
 
     /* ============================================================
        WORK CARDS
     ============================================================ */
     .work-cards { display: flex; flex-direction: column; gap: 2px; }
-    .work-card {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 2rem; background: var(--surface);
-    }
-    .card-header {
-      display: flex; flex-wrap: wrap; align-items: baseline;
-      gap: 0.5rem 1rem; margin-bottom: 0.75rem;
-    }
+    .work-card { border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; background: var(--surface); }
+    .card-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1rem; margin-bottom: 0.75rem; }
     .card-company { font-size: 1rem; font-weight: 600; color: var(--text); }
     .card-role { font-size: 0.875rem; color: var(--muted); }
     .card-dates { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-left: auto; }
     .card-context { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.6; }
+    .card-note { font-size: 0.875rem; color: var(--accent2); margin-top: 0.75rem; font-style: italic; }
     .card-outcomes { display: flex; flex-direction: column; gap: 0.5rem; }
-    .card-outcomes li {
-      font-size: 0.9rem; color: var(--text);
-      padding-left: 1rem; position: relative;
-    }
+    .card-outcomes li { font-size: 0.9rem; color: var(--text); padding-left: 1rem; position: relative; }
     .card-outcomes li::before { content: "\2013"; position: absolute; left: 0; color: var(--muted); }
     .card-outcomes li strong { color: var(--accent2); font-weight: 600; }
-    .card-earlier {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 1.5rem 2rem; background: var(--surface);
-    }
-    .card-earlier h3 {
-      font-size: 0.75rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;
-    }
+    .card-earlier { border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem 2rem; background: var(--surface); }
+    .card-earlier h3 { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
     .earlier-roles { display: flex; flex-direction: column; gap: 0.75rem; }
     .earlier-role { font-size: 0.875rem; color: var(--text); line-height: 1.6; }
-    .earlier-role strong { color: var(--text); }
     .earlier-role .er-meta { color: var(--muted); }
-
-    .card-opensource {
-      border: 1px solid var(--accent2);
-      border-radius: var(--radius);
-      padding: 2rem;
-      background: var(--surface);
-    }
+    .card-opensource { border: 1px solid var(--accent2); border-radius: var(--r); padding: 2rem; background: var(--surface); }
     .card-opensource .card-company { color: var(--accent2); }
 
     /* ============================================================
-       LANGUAGES
+       ARCHITECTURE DEEP-DIVES
     ============================================================ */
-    .lang-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-    .lang-name { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
-    .lang-level { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
-
-    /* ============================================================
-       VOLUNTEER
-    ============================================================ */
-    .vol-list { display: flex; flex-direction: column; gap: 1rem; }
-    .vol-org { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
-    .vol-role { font-size: 0.875rem; color: var(--muted); }
-    .vol-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
-
-    /* ============================================================
-       ARCHITECTURE
-    ============================================================ */
-    .arch-diagram-wrap {
-      background: #0d0d10; border: 1px solid #1f1f24;
-      border-radius: 6px; padding: 1.25rem;
-      margin-bottom: 2rem; overflow-x: auto;
-    }
-    .arch-walkthrough { display: flex; flex-direction: column; gap: 1rem; }
-    .arch-walkthrough p { font-size: 0.9375rem; color: var(--muted); line-height: 1.7; }
-    .arch-walkthrough p strong { color: var(--text); }
+    .arch-intro { color: var(--muted); font-size: 0.9375rem; max-width: 720px; margin-bottom: 3rem; line-height: 1.65; }
+    .arch-deepdive { margin-bottom: 4rem; }
+    .arch-deepdive:last-child { margin-bottom: 0; }
+    .arch-deepdive h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--text); margin-bottom: 0.4rem; }
+    .arch-subtitle { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 1.5rem; }
+    .arch-diagram-wrap { background: #0d0d10; border: 1px solid #1f1f24; border-radius: 6px; padding: 1rem; margin-bottom: 1.5rem; overflow-x: auto; max-width: 960px; }
+    .arch-caption { display: flex; flex-direction: column; gap: 0.875rem; }
+    .arch-caption p { font-size: 0.9375rem; color: var(--muted); line-height: 1.7; }
+    .arch-caption p strong { color: var(--text); }
 
     /* ============================================================
        TIMELINE
     ============================================================ */
     .timeline { position: relative; padding-left: 1.75rem; }
-    .timeline::before {
-      content: ''; position: absolute; left: 0; top: 6px; bottom: 0;
-      width: 1px; background: var(--border);
-    }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 0; width: 1px; background: var(--border); }
     .timeline li { position: relative; padding-bottom: 2rem; }
     .timeline li:last-child { padding-bottom: 0; }
-    .timeline-dot {
-      position: absolute; left: -1.875rem; top: 6px;
-      width: 9px; height: 9px; border-radius: 50%;
-      border: 1px solid var(--accent); background: var(--bg);
-    }
+    .timeline-dot { position: absolute; left: -1.875rem; top: 6px; width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--accent); background: var(--bg); }
     .timeline-company { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
-    .timeline-role { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .timeline-role { font-size: 0.875rem; color: var(--muted); }
     .timeline-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
 
     /* ============================================================
        SKILLS
     ============================================================ */
     .skills-groups { display: flex; flex-direction: column; gap: 2rem; }
-    .skill-group h3 {
-      font-size: 0.7rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;
-    }
+    .skill-group h3 { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
     .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .chip {
-      font-family: var(--font-mono); font-size: 0.7rem; color: var(--text);
-      border: 1px solid var(--border); padding: 0.2rem 0.55rem;
-      border-radius: 2px; background: transparent; letter-spacing: 0.02em;
-    }
-    .skill-years { margin-top: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .skill-years summary {
-      padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem;
-      color: var(--muted); cursor: pointer; user-select: none;
-    }
+    .chip { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text); border: 1px solid var(--border); padding: 0.2rem 0.55rem; border-radius: 2px; background: transparent; }
+    .skill-years { margin-top: 2.5rem; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .skill-years summary { padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); cursor: pointer; user-select: none; }
     .skill-years summary:hover { color: var(--text); }
-    .skill-years table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
-    .skill-years th {
-      text-align: left; padding: 0.5rem 1rem;
-      font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--border);
-    }
-    .skill-years td { padding: 0.5rem 1rem; color: var(--text); border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.8rem; }
+    .skill-years table { width: 100%; border-collapse: collapse; }
+    .skill-years th { text-align: left; padding: 0.5rem 1rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--border); }
+    .skill-years td { padding: 0.5rem 1rem; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.8rem; color: var(--text); }
     .skill-years tr:last-child td { border-bottom: none; }
     .skill-years td:nth-child(2) { color: var(--accent); white-space: nowrap; }
     .skill-years td:last-child { color: var(--muted); }
@@ -359,6 +217,17 @@
     .edu-period { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
 
     /* ============================================================
+       LANGUAGES + VOLUNTEER
+    ============================================================ */
+    .lang-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+    .lang-name { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
+    .lang-level { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+    .vol-list { display: flex; flex-direction: column; gap: 1rem; }
+    .vol-org { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
+    .vol-role { font-size: 0.875rem; color: var(--muted); }
+    .vol-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+
+    /* ============================================================
        FOOTER
     ============================================================ */
     footer { border-top: 1px solid var(--border); padding-block: 2rem; }
@@ -369,12 +238,9 @@
     .footer-links a:hover { color: var(--text); text-decoration: none; }
 
     /* ============================================================
-       FADE-IN ANIMATIONS
+       FADE-IN
     ============================================================ */
-    .fade-in-el {
-      opacity: 0; transform: translateY(8px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
+    .fade-in-el { opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .fade-in-el.visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) {
       .fade-in-el { opacity: 1; transform: none; transition: none; }
@@ -382,28 +248,24 @@
     }
 
     /* ============================================================
-       FOCUS STYLES
+       FOCUS
     ============================================================ */
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
     /* ============================================================
-       PRINT STYLES
+       PRINT
     ============================================================ */
     @media print {
-      :root {
-        --bg: #ffffff; --surface: #f9f9f9; --border: #ddd;
-        --text: #0a0a0b; --muted: #555; --accent: #5a3fc0; --accent2: #1a8a5e;
-      }
+      :root { --bg:#fff; --surface:#f9f9f9; --border:#ccc; --text:#0a0a0b; --muted:#555; --accent:#5a3fc0; --accent2:#1a8a5e; }
       .site-nav { display: none; }
       body { font-size: 11pt; }
       .section-hero { padding-block: 2rem 1rem; }
       section { padding-block: 1.5rem; page-break-inside: avoid; }
       .section-timeline { page-break-before: always; }
-      .arch-diagram-wrap { display: none; }
+      .arch-diagram-wrap svg rect { stroke: #333 !important; }
       .fade-in-el { opacity: 1; transform: none; }
       a[href]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #888; }
       .nav-links a::after, .footer-links a::after, .hero-actions a::after { content: none; }
-      footer { border-top: 1px solid #ddd; }
     }
   </style>
 </head>
@@ -427,15 +289,15 @@
 
   <main id="main">
 
-    <!-- 1. HERO -->
+    <!-- ── 1. HERO ── -->
     <section class="section-hero" id="hero" aria-labelledby="hero-h1">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container">
-        <p class="eyebrow">Bengaluru, IN &middot; Open to remote worldwide &middot; Hybrid in India or work-life-balance-first countries</p>
+        <p class="eyebrow">Bengaluru, IN &middot; Remote-first globally &middot; Hybrid in India &middot; Open to relocation</p>
         <h1 id="hero-h1">Debraj Paul</h1>
         <p class="hero-tagline">Senior Backend / Platform Engineer &mdash; Node.js &middot; TypeScript &middot; AWS</p>
-        <p class="hero-positioning">
-          10+ years designing, building, and operating distributed backend systems across media, fintech, food-tech, and travel. Deep in AWS-native architectures, event-driven platforms, and Backend-for-Frontend GraphQL. Currently shipping the Motif content platform powering Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend at Warner Bros. Discovery.
+        <p class="hero-pos">
+          10+ years designing, building, and operating distributed backend systems across media, fintech, food-tech, and travel. Deep in AWS-native architectures, event-driven platforms, and Backend-for-Frontend GraphQL. Currently shipping privacy-orchestration, multi-brand moderation, and backfill data pipelines at Warner Bros. Discovery, supporting Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend.
         </p>
         <div class="hero-actions">
           <a href="https://drive.google.com/uc?id=12Y6GYWJMozXBiYKcAZLqsTMT2hy86P9f&amp;export=download" class="btn-primary" rel="noopener">Download CV</a>
@@ -446,7 +308,7 @@
       </div>
     </section>
 
-    <!-- 2. BY THE NUMBERS -->
+    <!-- ── 2. BY THE NUMBERS ── -->
     <section class="section-metrics" id="metrics" aria-labelledby="metrics-h2">
       <div class="container">
         <h2 id="metrics-h2" class="fade-in-el">By the numbers</h2>
@@ -467,38 +329,36 @@
             <span class="metric-sub">PT Tujuh Asia &mdash; P2P lending platform</span>
           </div>
           <div class="metric" role="listitem">
-            <span class="metric-number">10+</span>
-            <span class="metric-label">Third-party POS systems integrated</span>
-            <span class="metric-sub">Kafka + Redis at Swiggy Dineout</span>
+            <span class="metric-number">6+</span>
+            <span class="metric-label">Microservices orchestrated for GDPR/CCPA fan-out</span>
+            <span class="metric-sub">Warner Bros. Discovery &mdash; via OneTrust</span>
           </div>
         </div>
-        <div class="compliance-chips fade-in-el" aria-label="Scale and compliance highlights">
-          <span class="c-chip">GDPR / CCPA at WBD</span>
-          <span class="c-chip">Multi-brand global media platform</span>
+        <div class="c-chips fade-in-el" aria-label="Scale and compliance highlights">
+          <span class="c-chip">GDPR / CCPA via OneTrust</span>
+          <span class="c-chip">Multi-brand moderation in-house</span>
           <span class="c-chip">Kafka in production at scale</span>
+          <span class="c-chip">10+ POS systems integrated</span>
         </div>
       </div>
     </section>
 
-    <!-- 3. OPEN TO -->
+    <!-- ── 3. OPEN TO ── -->
     <section class="section-open-to" id="open-to">
       <div class="container">
         <blockquote class="callout-open fade-in-el">
-          <strong>Remote:</strong> Fully remote from anywhere in the world &mdash; timezone overlap is the only constraint.
-          <br/>
-          <strong>Hybrid / Relocation:</strong> Open to hybrid in India (any city) or relocation to countries that prioritise strong work-life balance &mdash; Australia, New Zealand, Germany, the Netherlands, and broader Europe (Nordics, Benelux, DACH, and similar).
-          <br/>
-          <strong>Role tracks:</strong> Staff / Principal / Architect IC &middot; Platform / Distributed Systems / Backend Engineering.
+          <strong>Open to:</strong> Senior backend / Staff IC roles. Remote-first globally &middot; Hybrid in India &middot; Hybrid globally with employer-sponsored relocation. Comfortable across time zones.
         </blockquote>
       </div>
     </section>
 
-    <!-- 4. SELECTED WORK -->
+    <!-- ── 4. SELECTED WORK ── -->
     <section id="work" aria-labelledby="work-h2">
       <div class="container">
         <h2 id="work-h2" class="fade-in-el">Selected work</h2>
         <div class="work-cards">
 
+          <!-- Card 1: Warner Bros. Discovery -->
           <article class="work-card fade-in-el" aria-labelledby="card-wbd">
             <header class="card-header">
               <span class="card-company" id="card-wbd">Warner Bros. Discovery <span style="color:var(--muted);font-weight:400">via Robosoft</span></span>
@@ -507,15 +367,17 @@
             </header>
             <p class="card-context">Global, high-traffic media platform serving multiple brands with personalization, CMS, BFF services, and compliance-critical workflows.</p>
             <ul class="card-outcomes">
-              <li>Built Node.js/TypeScript microservices for the <strong>Motif</strong> content platform powering Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend.</li>
-              <li>Architected AWS-native infra (Lambda, ECS, SQS, SNS) with Infrastructure-as-Code; designed Lambda-vs-ECS deployment trade-offs per service.</li>
+              <li>Built Node.js/TypeScript microservices for an in-house content platform powering Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend.</li>
+              <li>Architected AWS-native infrastructure (Lambda, ECS, SQS, SNS) with Infrastructure-as-Code; designed Lambda-vs-ECS deployment trade-offs per service.</li>
               <li>Delivered a <strong>GraphQL Backend-for-Frontend</strong> for Food Network with auth, observability, and proactive monitoring.</li>
-              <li>Integrated <strong>OneTrust</strong> to enable GDPR/CCPA user-data access, deletion, and auditability across services.</li>
-              <li>Standardized REST/GraphQL API conventions adopted across teams; cut cross-team onboarding friction.</li>
+              <li>Integrated <strong>OneTrust</strong> to enable GDPR/CCPA user-data access, deletion, and auditability across <strong>6+ services</strong>.</li>
+              <li>Standardized REST and GraphQL API conventions adopted across teams; cut cross-team onboarding friction.</li>
               <li>Introduced distributed tracing (OpenTelemetry) and Redis caching, reducing DB pressure and improving incident MTTR.</li>
             </ul>
+            <p class="card-note">Three systems from this role are walked through with architecture diagrams below.</p>
           </article>
 
+          <!-- Card 2: Swiggy Dineout -->
           <article class="work-card fade-in-el" aria-labelledby="card-swiggy">
             <header class="card-header">
               <span class="card-company" id="card-swiggy">Swiggy Dineout</span>
@@ -532,6 +394,7 @@
             </ul>
           </article>
 
+          <!-- Card 3: PT Tujuh Asia -->
           <article class="work-card fade-in-el" aria-labelledby="card-pt">
             <header class="card-header">
               <span class="card-company" id="card-pt">PT Teknologi Tujuh Asia</span>
@@ -547,187 +410,349 @@
             </ul>
           </article>
 
+          <!-- Card 4: Earlier roles -->
           <article class="card-earlier fade-in-el" aria-labelledby="card-earlier-h">
             <h3 id="card-earlier-h">Earlier roles &mdash; 2015 &ndash; 2018</h3>
             <div class="earlier-roles">
-              <div class="earlier-role">
-                <strong>TripBorn</strong> <span class="er-meta">&mdash; Backend Developer &middot; Apr 2018 &ndash; Oct 2018 &middot; Bengaluru.</span>
-                Backend services for online booking + GDS reservation workflows; introduced Redis caching to reduce DB pressure.
-              </div>
-              <div class="earlier-role">
-                <strong>Ekagga Technology</strong> <span class="er-meta">&mdash; Software Engineer &middot; May 2017 &ndash; Apr 2018 &middot; Bengaluru.</span>
-                Java/Spring Boot + PostgreSQL backend for an enterprise news and analytics platform.
-              </div>
-              <div class="earlier-role">
-                <strong>CSIR &mdash; URDIP (FAO project)</strong> <span class="er-meta">&mdash; SDE Intern &middot; Jan 2015 &ndash; Jun 2015 &middot; Bengaluru.</span>
-                Designed neural-network configurations for food import/export analytics in Core Java; visualized with JFreeChart.
-              </div>
+              <div class="earlier-role"><strong>TripBorn</strong> <span class="er-meta">&mdash; Backend Developer &middot; Apr 2018 &ndash; Oct 2018 &middot; Bengaluru.</span> Backend services for online booking + GDS reservation workflows; introduced Redis caching to reduce DB pressure.</div>
+              <div class="earlier-role"><strong>Ekagga Technology</strong> <span class="er-meta">&mdash; Software Engineer &middot; May 2017 &ndash; Apr 2018 &middot; Bengaluru.</span> Java/Spring Boot + PostgreSQL backend for an enterprise news and analytics platform.</div>
+              <div class="earlier-role"><strong>CSIR &mdash; URDIP (FAO project)</strong> <span class="er-meta">&mdash; SDE Intern &middot; Jan 2015 &ndash; Jun 2015 &middot; Bengaluru.</span> Neural-network configurations for food import/export analytics in Core Java; visualized with JFreeChart.</div>
             </div>
           </article>
 
+          <!-- Card 5: Open Source -->
           <article class="card-opensource fade-in-el" aria-labelledby="card-oss">
             <header class="card-header">
-              <span class="card-company" id="card-oss">Open Source</span>
-              <span class="card-role">Full Budget App</span>
-              <span class="card-dates">Aug 2025 &middot; Personal project</span>
+              <span class="card-company" id="card-oss">Full Budget App</span>
+              <span class="card-role">Open Source &middot; Personal project</span>
+              <span class="card-dates">Aug 2025 &middot; <a href="https://github.com/debrajpaul/full-budget-app" rel="noopener noreferrer" target="_blank" style="font-size:0.75rem">github &rarr;</a></span>
             </header>
-            <p class="card-context">Serverless FinTech platform built to explore multi-tenant architecture, AI-assisted categorisation, and event-driven data flows on AWS.</p>
+            <p class="card-context">Modular, multi-tenant SaaS budgeting platform. Ingests bank statements, enriches transactions via rule-based + AI categorisation, and serves a tenant-aware GraphQL API. Built as a pnpm monorepo on AWS serverless.</p>
             <ul class="card-outcomes">
-              <li>Serverless architecture on <strong>AWS Lambda, DynamoDB, S3, SQS</strong> — zero-server, pay-per-request design.</li>
-              <li>Tenant-aware <strong>GraphQL API</strong> with isolated data boundaries per user/organisation.</li>
-              <li>AI-powered transaction classification via <strong>Amazon Bedrock</strong>; zero manual tagging for common spend patterns.</li>
-              <li>Event-driven pipeline: SQS triggers Lambda workers that classify, enrich, and persist transactions asynchronously.</li>
+              <li><strong>3 Lambda services</strong> + <strong>5 DynamoDB tables</strong> fully provisioned via AWS CDK; on-demand pricing throughout.</li>
+              <li>Fully event-driven ingestion: <strong>S3 &rarr; SQS &rarr; txn-loaders Lambda &rarr; DynamoDB Stream &rarr; tag-loaders Lambda</strong> &mdash; zero polling.</li>
+              <li>Multi-tenant isolation via <code>tenantId</code> partition key across all tables; JWT auth via SSM Parameter Store.</li>
+              <li>Hybrid categorisation: deterministic <strong>NLP rule engine</strong> first; <strong>Amazon Bedrock (Mistral)</strong> fallback for low-confidence matches &mdash; cost-optimised.</li>
+              <li>GraphQL API with <strong>Apollo Server 5</strong> &mdash; 11 queries, 9 mutations; financial reviews, forecasts, budgets, savings goals.</li>
+              <li>Observability: <strong>AWS X-Ray</strong> (10% sampling), CloudWatch alarms (errors, duration, throttle), Winston structured logging, Prometheus <code>/metrics</code> endpoint.</li>
             </ul>
+            <p class="card-note">Architecture diagram below &darr;</p>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- 5. ARCHITECTURE: MOTIF PLATFORM -->
+    <!-- ── 5. ARCHITECTURE DEEP-DIVES ── -->
     <section id="architecture" aria-labelledby="arch-h2">
       <div class="container">
-        <h2 id="arch-h2" class="fade-in-el">Architecture: Motif Platform</h2>
+        <h2 id="arch-h2" class="fade-in-el">Architecture deep-dives</h2>
+        <p class="arch-intro fade-in-el">Two systems built at Warner Bros. Discovery (Food Network, CNN, Eurosport, and others) &mdash; internal service names are not disclosed. Plus one open-source personal project with a full diagram.</p>
 
-        <div class="arch-diagram-wrap fade-in-el">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="100%" height="auto"
-               role="img" aria-labelledby="arch-title arch-desc">
-            <title id="arch-title">Motif Platform Architecture</title>
-            <desc id="arch-desc">Left-to-right diagram: Edge clients (CloudFront, Mobile) connect to a GraphQL BFF, which routes to three microservices (Content, Personalization, Compliance/OneTrust). Services publish async events to SNS, which fans out to SQS and Lambda workers. Workers write to a data layer (DynamoDB, RDS, Redis, ElasticSearch, S3). A cross-cutting band spans the bottom: OpenTelemetry, CloudWatch, IAM, IaC.</desc>
-            <defs>
-              <marker id="arr"   markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#9b9ba3"/></marker>
-              <marker id="arr-p" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#7c5cff"/></marker>
-              <marker id="arr-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#23d18b"/></marker>
-            </defs>
+        <!-- ── 5.1 Privacy / PII Request Orchestrator ── -->
+        <article class="arch-deepdive fade-in-el" id="arch-privacy" aria-labelledby="arch-privacy-h">
+          <h3 id="arch-privacy-h">Privacy / PII Request Orchestrator</h3>
+          <p class="arch-subtitle">Compliance &middot; GDPR Article 15 + 17 &middot; Async fan-out across 6+ services</p>
 
-            <!-- column headers -->
-            <text x="75"  y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#6b6b7a" letter-spacing="1.2">EDGE</text>
-            <text x="242" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#6b6b7a" letter-spacing="1.2">BFF</text>
-            <text x="432" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#6b6b7a" letter-spacing="1.2">MICROSERVICES</text>
-            <text x="610" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#6b6b7a" letter-spacing="1.2">ASYNC BACKBONE</text>
-            <text x="787" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#6b6b7a" letter-spacing="1.2">DATA LAYER</text>
+          <div class="arch-diagram-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="100%" height="auto"
+                 role="img" aria-labelledby="prv-title prv-desc">
+              <title id="prv-title">Privacy / PII Request Orchestrator Architecture</title>
+              <desc id="prv-desc">Left-to-right: User sends a privacy request to OneTrust (privacy management vendor), which fires a webhook to the Privacy Broker API. The broker forwards to the Compliance Request Orchestrator (primary actor). The orchestrator fans out via a Kafka request stream to 6 downstream services (Comments, Users/Profile, Saved Items, Brand-specific, Moderation, Media). Each service publishes its result to a Kafka result stream. The orchestrator aggregates and fires a fulfillment callback to the broker. State is stored in DynamoDB and a service registry. GDPR Article 15 and 17 compliance. Cross-cutting: CloudWatch, OpenTelemetry, IAM, IaC.</desc>
+              <defs>
+                <marker id="pa" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#9b9ba3"/></marker>
+                <marker id="pa-p" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c5cff"/></marker>
+                <marker id="pa-g" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#23d18b"/></marker>
+              </defs>
 
-            <!-- EDGE: CloudFront -->
-            <rect x="15"  y="48" width="120" height="54" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="75"  y="70" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">CloudFront</text>
-            <text x="75"  y="87" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9"  fill="#9b9ba3">Web Clients</text>
-            <!-- EDGE: Mobile -->
-            <rect x="15"  y="158" width="120" height="54" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="75"  y="180" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Mobile</text>
-            <text x="75"  y="197" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9"  fill="#9b9ba3">Apps</text>
+              <!-- column headers -->
+              <text x="50"  y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">ENTRY</text>
+              <text x="183" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">VENDOR</text>
+              <text x="335" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">BROKER</text>
+              <text x="492" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">ORCHESTRATOR</text>
+              <text x="790" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">ASYNC BACKBONE</text>
 
-            <!-- BFF (purple) -->
-            <rect x="163" y="40" width="158" height="232" rx="3" fill="none" stroke="#7c5cff" stroke-width="1.5"/>
-            <text x="242" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7c5cff" font-weight="bold">GraphQL BFF</text>
-            <text x="242" y="120" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#9b9ba3">Food Network</text>
-            <text x="242" y="142" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">Auth &#xB7; Authz</text>
-            <text x="242" y="158" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">Observability</text>
-            <text x="242" y="178" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#6b6b7a">Node.js / TypeScript</text>
+              <!-- User -->
+              <rect x="10" y="155" width="80" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="50" y="177" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">User</text>
+              <text x="50" y="191" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">privacy request</text>
 
-            <!-- MICROSERVICES -->
-            <rect x="350" y="48"  width="165" height="54" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="432" y="70"  text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Content Service</text>
-            <text x="432" y="87"  text-anchor="middle" font-family="ui-monospace,monospace" font-size="9"  fill="#9b9ba3">Node.js / TypeScript</text>
+              <!-- OneTrust (vendor) -->
+              <rect x="108" y="120" width="150" height="80" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="183" y="152" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">OneTrust</text>
+              <text x="183" y="168" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">Privacy Management</text>
+              <text x="183" y="183" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">Vendor</text>
 
-            <rect x="350" y="144" width="165" height="54" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="432" y="166" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Personalization</text>
-            <text x="432" y="183" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9"  fill="#9b9ba3">Node.js / TypeScript</text>
+              <!-- Privacy Broker API -->
+              <rect x="278" y="152" width="118" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="337" y="172" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Privacy Broker</text>
+              <text x="337" y="187" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">API</text>
 
-            <rect x="350" y="240" width="165" height="54" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
-            <text x="432" y="262" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Compliance Service</text>
-            <text x="432" y="279" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9"  fill="#23d18b">OneTrust integration</text>
-            <!-- compliance badge -->
-            <rect x="352" y="301" width="161" height="24" rx="3" fill="none" stroke="#23d18b" stroke-width="1" stroke-dasharray="4,2"/>
-            <text x="432" y="317" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8.5" fill="#23d18b">GDPR / CCPA &#xB7; OneTrust</text>
+              <!-- Compliance Request Orchestrator (purple) -->
+              <rect x="416" y="58" width="160" height="72" rx="3" fill="none" stroke="#7c5cff" stroke-width="1.5"/>
+              <text x="496" y="86" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7c5cff" font-weight="bold">Compliance Request</text>
+              <text x="496" y="101" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7c5cff" font-weight="bold">Orchestrator</text>
+              <text x="496" y="118" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">subject-request-ID = idempotency key</text>
 
-            <!-- ASYNC BACKBONE -->
-            <rect x="543" y="48"  width="132" height="48" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="609" y="68"  text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">SNS</text>
-            <text x="609" y="84"  text-anchor="middle" font-family="ui-monospace,monospace" font-size="9"  fill="#9b9ba3">fan-out</text>
+              <!-- State DB -->
+              <rect x="416" y="146" width="160" height="32" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="496" y="166" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Request State DB (DynamoDB)</text>
 
-            <rect x="543" y="144" width="132" height="48" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="609" y="164" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">SQS</text>
-            <text x="609" y="180" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9"  fill="#9b9ba3">per-consumer</text>
+              <!-- Service Registry -->
+              <rect x="416" y="187" width="160" height="32" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="496" y="207" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Service Registry</text>
 
-            <rect x="543" y="240" width="132" height="48" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="609" y="260" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Lambda</text>
-            <text x="609" y="276" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9"  fill="#9b9ba3">workers</text>
+              <!-- S3 export -->
+              <rect x="416" y="228" width="160" height="32" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="496" y="248" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">S3 &rarr; Access Data export</text>
 
-            <!-- DATA LAYER -->
-            <rect x="708" y="42"  width="155" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="785" y="65"  text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">DynamoDB</text>
-            <rect x="708" y="98"  width="155" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="785" y="121" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">RDS (Postgres)</text>
-            <rect x="708" y="154" width="155" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="785" y="177" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Redis (cache-aside)</text>
-            <rect x="708" y="210" width="155" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="785" y="233" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">ElasticSearch</text>
-            <rect x="708" y="266" width="155" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-            <text x="785" y="289" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">S3 (assets)</text>
+              <!-- GDPR badge (green dashed) -->
+              <rect x="418" y="268" width="156" height="22" rx="3" fill="none" stroke="#23d18b" stroke-width="1" stroke-dasharray="4,2"/>
+              <text x="496" y="283" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#23d18b">GDPR Art. 15 + 17 &middot; Audit trail</text>
 
-            <!-- ARROWS: Edge -> BFF -->
-            <line x1="135" y1="75"  x2="161" y2="75"  stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="135" y1="185" x2="161" y2="185" stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
+              <!-- Kafka Request Stream -->
+              <rect x="596" y="58" width="115" height="42" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="653" y="76" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Kafka</text>
+              <text x="653" y="90" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">User Request Stream</text>
 
-            <!-- ARROWS: BFF -> Services (purple) -->
-            <line x1="321" y1="75"  x2="348" y2="75"  stroke="#7c5cff" stroke-width="1" marker-end="url(#arr-p)"/>
-            <line x1="321" y1="171" x2="348" y2="171" stroke="#7c5cff" stroke-width="1" marker-end="url(#arr-p)"/>
-            <line x1="321" y1="267" x2="348" y2="267" stroke="#7c5cff" stroke-width="1" marker-end="url(#arr-p)"/>
+              <!-- Kafka Result Stream -->
+              <rect x="596" y="315" width="115" height="42" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="653" y="333" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Kafka</text>
+              <text x="653" y="347" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">User Result Stream</text>
 
-            <!-- ARROWS: Services -> Async (dashed events) -->
-            <line x1="515" y1="75"  x2="541" y2="73"  stroke="#9b9ba3" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arr)"/>
-            <line x1="515" y1="171" x2="541" y2="169" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arr)"/>
-            <line x1="515" y1="267" x2="541" y2="265" stroke="#23d18b" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arr-g)"/>
+              <!-- 6 downstream services -->
+              <rect x="728" y="48"  width="148" height="32" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="802" y="68"  text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Comments Service</text>
+              <rect x="728" y="88"  width="148" height="32" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="802" y="108" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Users / Profile Service</text>
+              <rect x="728" y="128" width="148" height="32" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="802" y="148" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Saved Items Service</text>
+              <rect x="728" y="168" width="148" height="32" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="802" y="188" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Brand-specific Services</text>
+              <rect x="728" y="208" width="148" height="32" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="802" y="228" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Moderation Service</text>
+              <rect x="728" y="248" width="148" height="32" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="802" y="268" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Media Service</text>
 
-            <!-- ARROWS: Async internal SNS->SQS->Lambda -->
-            <line x1="609" y1="96"  x2="609" y2="142" stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="609" y1="192" x2="609" y2="238" stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
+              <!-- ARROWS -->
+              <!-- User → OneTrust -->
+              <line x1="90" y1="177" x2="106" y2="177" stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+              <!-- OneTrust → Privacy Broker (webhook) -->
+              <line x1="258" y1="162" x2="276" y2="162" stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+              <text x="267" y="157" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">webhook</text>
+              <!-- Privacy Broker → Orchestrator (elbow up) -->
+              <polyline points="396,174 406,174 406,94 414,94" fill="none" stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+              <!-- Orchestrator → Privacy Broker (fulfillment callback, dashed) -->
+              <polyline points="414,108 404,108 404,186 396,186" fill="none" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#pa)"/>
+              <text x="380" y="103" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">fulfillment</text>
+              <text x="380" y="113" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">callback</text>
+              <!-- Orchestrator → Request Stream (dashed) -->
+              <line x1="576" y1="80" x2="594" y2="80" stroke="#7c5cff" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#pa-p)"/>
+              <!-- Request Stream → services (bus + branches, dashed) -->
+              <line x1="711" y1="79" x2="722" y2="79" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="3,2"/>
+              <line x1="722" y1="64" x2="722" y2="264" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="2,3"/>
+              <line x1="722" y1="64"  x2="726" y2="64"  stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+              <line x1="722" y1="104" x2="726" y2="104" stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+              <line x1="722" y1="144" x2="726" y2="144" stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+              <line x1="722" y1="184" x2="726" y2="184" stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+              <line x1="722" y1="224" x2="726" y2="224" stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+              <line x1="722" y1="264" x2="726" y2="264" stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+              <!-- Services → Result Stream (right bus, dashed) -->
+              <line x1="876" y1="64"  x2="880" y2="64"  stroke="#9b9ba3" stroke-width="1"/>
+              <line x1="876" y1="104" x2="880" y2="104" stroke="#9b9ba3" stroke-width="1"/>
+              <line x1="876" y1="144" x2="880" y2="144" stroke="#9b9ba3" stroke-width="1"/>
+              <line x1="876" y1="184" x2="880" y2="184" stroke="#9b9ba3" stroke-width="1"/>
+              <line x1="876" y1="224" x2="880" y2="224" stroke="#9b9ba3" stroke-width="1"/>
+              <line x1="876" y1="264" x2="880" y2="264" stroke="#9b9ba3" stroke-width="1"/>
+              <line x1="880" y1="64" x2="880" y2="336" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="2,3"/>
+              <line x1="880" y1="336" x2="713" y2="336" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#pa)"/>
+              <!-- Result Stream → Orchestrator (feedback, dashed) -->
+              <polyline points="596,341 412,341 412,278 414,278" fill="none" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#pa)"/>
+              <!-- Orchestrator internal connectors (State DB, Registry, S3) -->
+              <line x1="496" y1="130" x2="496" y2="144" stroke="#1f1f24" stroke-width="1"/>
+              <line x1="496" y1="178" x2="496" y2="187" stroke="#1f1f24" stroke-width="1"/>
+              <line x1="496" y1="219" x2="496" y2="228" stroke="#1f1f24" stroke-width="1"/>
 
-            <!-- ARROWS: Lambda -> Data layer via vertical bus -->
-            <line x1="675" y1="264" x2="692" y2="264" stroke="#9b9ba3" stroke-width="1"/>
-            <line x1="692" y1="60"  x2="692" y2="284" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="2,3"/>
-            <line x1="692" y1="60"  x2="706" y2="60"  stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="692" y1="116" x2="706" y2="116" stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="692" y1="172" x2="706" y2="172" stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="692" y1="228" x2="706" y2="228" stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="692" y1="284" x2="706" y2="284" stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
+              <!-- Cross-cutting band -->
+              <rect x="10" y="390" width="940" height="46" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="6,3"/>
+              <text x="480" y="408" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">CROSS-CUTTING</text>
+              <text x="480" y="423" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">CloudWatch &middot; OpenTelemetry &middot; IAM &middot; IaC (CDK / CloudFormation)</text>
 
-            <!-- CROSS-CUTTING BAND -->
-            <rect x="15"  y="376" width="930" height="52" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="6,3"/>
-            <text x="480" y="396" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8.5" fill="#6b6b7a" letter-spacing="1">CROSS-CUTTING</text>
-            <text x="480" y="414" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#9b9ba3">OpenTelemetry &#xB7; CloudWatch &#xB7; IAM &#xB7; IaC (CDK / CloudFormation)</text>
+              <!-- Legend -->
+              <g transform="translate(800,330)">
+                <text x="0" y="0" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">LEGEND</text>
+                <line x1="0" y1="13" x2="32" y2="13" stroke="#9b9ba3" stroke-width="1" marker-end="url(#pa)"/>
+                <text x="36" y="17" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">sync HTTP</text>
+                <line x1="0" y1="28" x2="32" y2="28" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#pa)"/>
+                <text x="36" y="32" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">async event</text>
+                <rect x="0" y="40" width="8" height="8" fill="none" stroke="#7c5cff" stroke-width="1"/>
+                <text x="12" y="48" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">primary actor</text>
+                <rect x="0" y="56" width="8" height="8" fill="none" stroke="#23d18b" stroke-width="1"/>
+                <text x="12" y="64" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">compliance</text>
+              </g>
+            </svg>
+          </div>
 
-            <!-- LEGEND -->
-            <g transform="translate(790,336)">
-              <text x="0"  y="0"  font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">LEGEND</text>
-              <line x1="0"  y1="14" x2="36" y2="14" stroke="#9b9ba3" stroke-width="1" marker-end="url(#arr)"/>
-              <text x="41" y="18" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">sync</text>
-              <line x1="0"  y1="30" x2="36" y2="30" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arr)"/>
-              <text x="41" y="34" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">event (async)</text>
-              <rect x="0"  y="42" width="10" height="10" fill="none" stroke="#7c5cff" stroke-width="1"/>
-              <text x="15" y="51" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">BFF layer</text>
-              <rect x="0"  y="60" width="10" height="10" fill="none" stroke="#23d18b" stroke-width="1"/>
-              <text x="15" y="69" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">compliance</text>
-            </g>
-          </svg>
-        </div>
+          <div class="arch-caption">
+            <p><strong>What it is.</strong> A user privacy request (right of access or right to erasure) enters via OneTrust and is forwarded by a third-party broker to the Compliance Request Orchestrator. The orchestrator looks up which downstream services hold PII for that user via a service registry, then fans out across a Kafka request stream. Each downstream consumes its slice, processes (delete or export), and publishes a per-service result. The orchestrator aggregates results and calls the broker's fulfillment API once the aggregate state flips to complete.</p>
+            <p><strong>Why this shape.</strong> The subject-request-ID drives idempotency end-to-end, so re-deliveries at any hop are safe. A service registry &mdash; rather than hardcoded routing &mdash; lets new PII-holding services join compliance by registering, with no orchestrator change. Two separate Kafka streams (request out, result in) give each downstream a clean inbound contract and the orchestrator a clean aggregation contract. State is split into per-service status and an aggregate; the aggregate flips to <code>complete</code> only when every individual settles, gating the fulfillment callback.</p>
+          </div>
+        </article>
 
-        <div class="arch-walkthrough">
-          <p class="fade-in-el">
-            <strong>What it is.</strong> Motif is the global content platform behind WBD's editorial brands (Food Network, CNN, Eurosport, Magnolia, Golf Digest, MotorTrend). Loosely coupled Node.js/TypeScript microservices, an AWS-native runtime, and a GraphQL BFF give each brand its own client surface while sharing the platform's content, personalization, and compliance services.
-          </p>
-          <p class="fade-in-el">
-            <strong>Why this shape.</strong> Fault isolation comes from queue decoupling (SNS &rarr; SQS &rarr; Lambda) so a slow downstream never back-pressures the BFF. The cache-aside Redis layer absorbs read spikes; ElasticSearch handles segment and search; DynamoDB carries hot key-value paths.
-          </p>
-          <p class="fade-in-el">
-            <strong>Compliance is a first-class service.</strong> OneTrust drives GDPR/CCPA user-data access and deletion across every microservice, with auditability baked into the event contracts.
-          </p>
-        </div>
+        <!-- ── 5.2 Multi-Brand Async Moderation ── -->
+        <article class="arch-deepdive fade-in-el" id="arch-moderation" aria-labelledby="arch-mod-h">
+          <h3 id="arch-mod-h">Multi-Brand Async Moderation Platform</h3>
+          <p class="arch-subtitle">Trust &amp; Safety &middot; Multi-tenant &middot; In-house text + image moderation</p>
+
+          <div class="arch-caption">
+            <p><strong>What it is.</strong> User-generated content &mdash; comments, nicknames, image uploads &mdash; from multiple brand surfaces flows through an internal API gateway, is identity-checked via CIAM, then published to a Kafka request stream. An inbound Lambda dispatches to two in-house classifiers: a text moderation processor for comments and nicknames, and a media processor for images. Both publish verdicts to a separate Kafka response stream; an outbound Lambda picks up each verdict and notifies the originating brand surface. Image bytes are stored in S3; record metadata and S3 keys live in DynamoDB.</p>
+            <p><strong>Why this shape.</strong> Two streams (request out, response in) localise replay &mdash; a failure in moderation never re-drives the entire pipeline. Both classifiers are owned in-house: text moderation was migrated off a third-party vendor, image moderation absorbed from a sister team, eliminating vendor cost and returning policy ownership to the product team. Per-brand rules (banned terms, severity thresholds) are hot-reloadable without redeployment.</p>
+          </div>
+        </article>
+
+        <!-- ── 5.3 Full Budget App (Open Source) ── -->
+        <article class="arch-deepdive fade-in-el" id="arch-fba" aria-labelledby="arch-fba-h">
+          <h3 id="arch-fba-h">Full Budget App <span style="color:var(--accent2);font-weight:400;font-size:0.875rem">&mdash; Open Source</span></h3>
+          <p class="arch-subtitle">Serverless &middot; Multi-tenant &middot; Event-driven categorisation &middot; AWS CDK &middot; <a href="https://github.com/debrajpaul/full-budget-app" rel="noopener noreferrer" target="_blank" style="color:var(--accent)">github.com/debrajpaul/full-budget-app</a></p>
+
+          <div class="arch-diagram-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="100%" height="auto"
+                 role="img" aria-labelledby="fba-title fba-desc">
+              <title id="fba-title">Full Budget App Architecture</title>
+              <desc id="fba-desc">Client sends GraphQL requests through API Gateway to the GraphQL Lambda (Apollo Server, primary actor). The lambda reads and writes five DynamoDB tables: Users, Transactions (with stream), Budgets, Recurring Transactions, and Categories. For statement uploads the lambda writes to an S3 bucket; an S3 PUT event triggers an SQS message; SQS triggers the txn-loaders Lambda which parses bank statements (HDFC, SBI, Axis) and writes normalised transactions to DynamoDB. The DynamoDB stream on the Transactions table triggers the tag-loaders Lambda which applies a deterministic NLP rule engine first, then falls back to Amazon Bedrock (Mistral) for low-confidence matches, and writes the result to the Categories table. AWS X-Ray, CloudWatch, and SSM Parameter Store provide observability and configuration.</desc>
+              <defs>
+                <marker id="fa" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#9b9ba3"/></marker>
+                <marker id="fa-p" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c5cff"/></marker>
+                <marker id="fa-g" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#23d18b"/></marker>
+                <marker id="fa-rev" markerWidth="7" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M7,0 L7,6 L0,3 z" fill="#9b9ba3"/></marker>
+              </defs>
+
+              <!-- column headers -->
+              <text x="88"  y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">CLIENT / ENTRY</text>
+              <text x="480" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">COMPUTE</text>
+              <text x="730" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">STORAGE / ASYNC</text>
+
+              <!-- User / Client -->
+              <rect x="14"  y="34" width="148" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="88"  y="56" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Client (web / mobile)</text>
+
+              <!-- API Gateway -->
+              <rect x="14"  y="88" width="148" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="88"  y="110" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">API Gateway</text>
+
+              <!-- GraphQL Lambda (purple, primary) -->
+              <rect x="200" y="60" width="290" height="64" rx="3" fill="none" stroke="#7c5cff" stroke-width="1.5"/>
+              <text x="345" y="84"  text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7c5cff" font-weight="bold">GraphQL Lambda</text>
+              <text x="345" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">Apollo Server 5 &middot; JWT &middot; X-Ray tracing</text>
+              <text x="345" y="115" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a">11 queries &middot; 9 mutations &middot; multi-tenant</text>
+
+              <!-- DynamoDB group (left-center) -->
+              <rect x="200" y="158" width="285" height="210" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="5,3"/>
+              <text x="290" y="174" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3" letter-spacing="1">DYNAMODB (on-demand &middot; tenantId PK)</text>
+              <rect x="208" y="180" width="268" height="28" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="342" y="198" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Users</text>
+              <rect x="208" y="216" width="268" height="28" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
+              <text x="310" y="234" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Transactions</text>
+              <rect x="390" y="216" width="80" height="28" rx="3" fill="none" stroke="#23d18b" stroke-width="1" stroke-dasharray="3,2"/>
+              <text x="430" y="234" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#23d18b">stream</text>
+              <rect x="208" y="252" width="268" height="28" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="342" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Budgets</text>
+              <rect x="208" y="288" width="268" height="28" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="342" y="306" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Recurring Transactions</text>
+              <rect x="208" y="330" width="268" height="28" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
+              <text x="342" y="348" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Categories (output of tag-loaders)</text>
+
+              <!-- S3 Bucket -->
+              <rect x="550" y="60" width="160" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="630" y="82" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">S3 (statement uploads)</text>
+
+              <!-- SQS -->
+              <rect x="550" y="120" width="160" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="630" y="138" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">SQS Queue</text>
+              <text x="630" y="151" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">batch 10 &middot; 300s visibility</text>
+
+              <!-- txn-loaders Lambda -->
+              <rect x="548" y="186" width="262" height="52" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="679" y="208" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">txn-loaders Lambda</text>
+              <text x="679" y="224" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">parse (HDFC / SBI / Axis) &middot; normalise &middot; write</text>
+
+              <!-- tag-loaders Lambda (green, in-house) -->
+              <rect x="548" y="280" width="262" height="60" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
+              <text x="679" y="302" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">tag-loaders Lambda</text>
+              <text x="679" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">NLP rule engine (deterministic first)</text>
+              <text x="679" y="332" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#23d18b">Amazon Bedrock fallback (Mistral)</text>
+
+              <!-- Bedrock box -->
+              <rect x="548" y="378" width="262" height="36" rx="3" fill="none" stroke="#23d18b" stroke-width="1" stroke-dasharray="4,2"/>
+              <text x="679" y="396" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#23d18b">Amazon Bedrock (Mistral)</text>
+              <text x="679" y="410" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">low-confidence matches only</text>
+
+              <!-- SSM Parameter Store (small, top-right) -->
+              <rect x="820" y="60" width="128" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="3,2"/>
+              <text x="884" y="79" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">SSM Param Store</text>
+              <text x="884" y="91" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">JWT secret</text>
+
+              <!-- Observability band -->
+              <rect x="14" y="445" width="934" height="40" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="6,3"/>
+              <text x="481" y="462" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">OBSERVABILITY</text>
+              <text x="481" y="477" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">AWS X-Ray (10% sampling) &middot; CloudWatch alarms (errors / duration / throttle) &middot; Winston logs &middot; Prometheus /metrics</text>
+
+              <!-- ARROWS -->
+              <!-- Client → API Gateway -->
+              <line x1="88" y1="70" x2="88" y2="86" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+              <!-- API Gateway → GraphQL Lambda -->
+              <line x1="162" y1="106" x2="198" y2="92" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+              <!-- GraphQL Lambda ↔ DynamoDB group (write down / read up) -->
+              <line x1="280" y1="124" x2="280" y2="156" stroke="#7c5cff" stroke-width="1" marker-end="url(#fa-p)"/>
+              <line x1="310" y1="156" x2="310" y2="124" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#fa)"/>
+              <!-- GraphQL Lambda → S3 (upload) -->
+              <line x1="490" y1="80" x2="548" y2="78" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+              <text x="518" y="74" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">upload</text>
+              <!-- S3 → SQS (dashed, S3 event) -->
+              <line x1="630" y1="96" x2="630" y2="118" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa)"/>
+              <text x="643" y="112" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">S3 event</text>
+              <!-- SQS → txn-loaders (dashed) -->
+              <line x1="630" y1="157" x2="630" y2="184" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa)"/>
+              <!-- txn-loaders → Transactions DDB (solid, write) -->
+              <polyline points="548,218 490,218 490,230" fill="none" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+              <text x="519" y="213" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">write</text>
+              <!-- Transactions DDB stream → tag-loaders (dashed) -->
+              <polyline points="476,230 476,310 546,310" fill="none" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa)"/>
+              <text x="490" y="282" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">DDB stream</text>
+              <!-- tag-loaders → Bedrock (dashed) -->
+              <line x1="679" y1="340" x2="679" y2="376" stroke="#23d18b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa-g)"/>
+              <text x="693" y="364" font-family="ui-monospace,monospace" font-size="7" fill="#23d18b">AI fallback</text>
+              <!-- tag-loaders → Categories DDB (solid) -->
+              <polyline points="548,330 490,330 490,344" fill="none" stroke="#23d18b" stroke-width="1" marker-end="url(#fa-g)"/>
+              <text x="519" y="326" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#23d18b">categorise</text>
+              <!-- SSM → GraphQL Lambda -->
+              <line x1="820" y1="78" x2="492" y2="84" stroke="#1f1f24" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#fa)"/>
+
+              <!-- Legend -->
+              <g transform="translate(14,422)">
+                <line x1="0" y1="8" x2="28" y2="8" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+                <text x="32" y="12" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">sync</text>
+                <line x1="75" y1="8" x2="103" y2="8" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa)"/>
+                <text x="107" y="12" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">async / event</text>
+                <rect x="175" y="2" width="8" height="8" fill="none" stroke="#7c5cff" stroke-width="1"/>
+                <text x="187" y="10" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">primary actor</text>
+                <rect x="272" y="2" width="8" height="8" fill="none" stroke="#23d18b" stroke-width="1"/>
+                <text x="284" y="10" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">AI / categorisation</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="arch-caption">
+            <p><strong>What it is.</strong> A multi-tenant serverless budgeting platform built as a pnpm monorepo on AWS. Users upload bank statements (HDFC, SBI, Axis &mdash; PDF or CSV) via a GraphQL mutation; the statement lands in S3, an S3 event queues a message in SQS, and the txn-loaders Lambda parses and normalises the transactions into DynamoDB. A DynamoDB stream on the Transactions table immediately triggers the tag-loaders Lambda, which applies a deterministic NLP rule engine for known merchants and categories, falling back to Amazon Bedrock (Mistral) only for low-confidence matches. All five DynamoDB tables use <code>tenantId</code> as the partition key, giving hard data-boundary isolation between users.</p>
+            <p><strong>Why this shape.</strong> S3 &rarr; SQS decouples ingestion from parsing &mdash; spiky upload volumes don't block the GraphQL API. DynamoDB Streams replace polling entirely: as soon as a transaction is written, the categorisation worker fires. The hybrid NLP+AI strategy keeps Bedrock calls (and their cost) to a minimum; most common merchants are classified by rules in under a millisecond. AWS CDK provisions all resources &mdash; tables, queues, buckets, alarms, X-Ray groups &mdash; as reproducible stacks with explicit dependency ordering.</p>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- 6. EXPERIENCE TIMELINE -->
-    <section id="timeline" aria-labelledby="timeline-h2">
+    <!-- ── 6. EXPERIENCE TIMELINE ── -->
+    <section id="timeline" class="section-timeline" aria-labelledby="timeline-h2">
       <div class="container">
         <h2 id="timeline-h2" class="fade-in-el">Experience</h2>
         <ol class="timeline">
@@ -777,138 +802,91 @@
       </div>
     </section>
 
-    <!-- 7. SKILLS MATRIX -->
+    <!-- ── 7. SKILLS MATRIX ── -->
     <section id="skills" aria-labelledby="skills-h2">
       <div class="container">
         <h2 id="skills-h2" class="fade-in-el">Skills</h2>
         <div class="skills-groups">
+
           <div class="skill-group fade-in-el">
             <h3>Languages &amp; Runtime</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">TypeScript</span>
-              <span class="chip" role="listitem">Node.js</span>
-              <span class="chip" role="listitem">JavaScript</span>
-              <span class="chip" role="listitem">Java</span>
-              <span class="chip" role="listitem">Go</span>
+              <span class="chip" role="listitem">TypeScript</span><span class="chip" role="listitem">Node.js</span><span class="chip" role="listitem">JavaScript</span><span class="chip" role="listitem">Java</span><span class="chip" role="listitem">Go</span>
             </div>
           </div>
+
           <div class="skill-group fade-in-el">
             <h3>Backend Frameworks &amp; APIs</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">Express.js</span>
-              <span class="chip" role="listitem">Custom Node.js frameworks</span>
-              <span class="chip" role="listitem">GraphQL (BFF)</span>
-              <span class="chip" role="listitem">Spring Boot</span>
-              <span class="chip" role="listitem">Hibernate</span>
-              <span class="chip" role="listitem">Gin</span>
+              <span class="chip" role="listitem">Express.js</span><span class="chip" role="listitem">Custom Node.js frameworks</span><span class="chip" role="listitem">GraphQL (BFF)</span><span class="chip" role="listitem">Spring Boot</span><span class="chip" role="listitem">Hibernate</span><span class="chip" role="listitem">Gin</span>
             </div>
           </div>
+
           <div class="skill-group fade-in-el">
             <h3>Cloud &amp; DevOps</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">AWS Lambda</span>
-              <span class="chip" role="listitem">ECS</span>
-              <span class="chip" role="listitem">SQS</span>
-              <span class="chip" role="listitem">SNS</span>
-              <span class="chip" role="listitem">S3</span>
-              <span class="chip" role="listitem">IAM</span>
-              <span class="chip" role="listitem">DynamoDB</span>
-              <span class="chip" role="listitem">RDS</span>
-              <span class="chip" role="listitem">Docker</span>
-              <span class="chip" role="listitem">Jenkins</span>
-              <span class="chip" role="listitem">GitHub Actions</span>
-              <span class="chip" role="listitem">CircleCI</span>
-              <span class="chip" role="listitem">IaC (CDK / CloudFormation)</span>
-              <span class="chip" role="listitem">Amazon Bedrock</span>
+              <span class="chip" role="listitem">AWS Lambda</span><span class="chip" role="listitem">ECS</span><span class="chip" role="listitem">SQS</span><span class="chip" role="listitem">SNS</span><span class="chip" role="listitem">S3</span><span class="chip" role="listitem">IAM</span><span class="chip" role="listitem">DynamoDB</span><span class="chip" role="listitem">RDS</span><span class="chip" role="listitem">Glue</span><span class="chip" role="listitem">OpenSearch</span><span class="chip" role="listitem">Amazon Bedrock</span><span class="chip" role="listitem">Docker</span><span class="chip" role="listitem">Jenkins</span><span class="chip" role="listitem">GitHub Actions</span><span class="chip" role="listitem">CircleCI</span><span class="chip" role="listitem">IaC (CDK / CloudFormation)</span>
             </div>
           </div>
+
           <div class="skill-group fade-in-el">
             <h3>Architecture &amp; Design</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">Microservices</span>
-              <span class="chip" role="listitem">Event-Driven Systems</span>
-              <span class="chip" role="listitem">Backend-for-Frontend (BFF)</span>
-              <span class="chip" role="listitem">REST</span>
-              <span class="chip" role="listitem">GraphQL</span>
-              <span class="chip" role="listitem">Distributed Systems</span>
-              <span class="chip" role="listitem">TDD</span>
-              <span class="chip" role="listitem">Domain-based service boundaries</span>
-              <span class="chip" role="listitem">Idempotent message handling</span>
-              <span class="chip" role="listitem">Retry with exponential backoff</span>
-              <span class="chip" role="listitem">Cache-aside</span>
-              <span class="chip" role="listitem">Fault isolation via queue decoupling</span>
+              <span class="chip" role="listitem">Microservices</span><span class="chip" role="listitem">Event-Driven Systems</span><span class="chip" role="listitem">Backend-for-Frontend (BFF)</span><span class="chip" role="listitem">REST</span><span class="chip" role="listitem">GraphQL</span><span class="chip" role="listitem">Distributed Systems</span><span class="chip" role="listitem">TDD</span><span class="chip" role="listitem">Service-registry orchestration</span><span class="chip" role="listitem">Two-stream Kafka contracts</span><span class="chip" role="listitem">State-machine async fulfillment</span><span class="chip" role="listitem">Domain-based service boundaries</span><span class="chip" role="listitem">Idempotent message handling</span><span class="chip" role="listitem">Retry with exponential backoff</span><span class="chip" role="listitem">Cache-aside</span><span class="chip" role="listitem">Fault isolation via queue decoupling</span>
             </div>
           </div>
+
           <div class="skill-group fade-in-el">
             <h3>Messaging &amp; Streaming</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">Kafka</span>
-              <span class="chip" role="listitem">AWS Kinesis</span>
-              <span class="chip" role="listitem">SNS</span>
-              <span class="chip" role="listitem">SQS</span>
+              <span class="chip" role="listitem">Kafka</span><span class="chip" role="listitem">AWS Kinesis</span><span class="chip" role="listitem">SNS</span><span class="chip" role="listitem">SQS (Standard + FIFO + DLQ)</span>
             </div>
           </div>
+
           <div class="skill-group fade-in-el">
             <h3>Data Stores</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">MongoDB</span>
-              <span class="chip" role="listitem">Mongoose (ODM)</span>
-              <span class="chip" role="listitem">DynamoDB</span>
-              <span class="chip" role="listitem">PostgreSQL</span>
-              <span class="chip" role="listitem">MySQL</span>
-              <span class="chip" role="listitem">RDS</span>
-              <span class="chip" role="listitem">Redis</span>
-              <span class="chip" role="listitem">ElasticSearch</span>
+              <span class="chip" role="listitem">MongoDB (Mongoose)</span><span class="chip" role="listitem">DynamoDB</span><span class="chip" role="listitem">PostgreSQL</span><span class="chip" role="listitem">MySQL</span><span class="chip" role="listitem">RDS</span><span class="chip" role="listitem">Redis</span><span class="chip" role="listitem">ElasticSearch</span><span class="chip" role="listitem">OpenSearch</span><span class="chip" role="listitem">Parquet (Snappy) on S3</span>
             </div>
           </div>
+
           <div class="skill-group fade-in-el">
             <h3>Compliance &amp; Security</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">GDPR</span>
-              <span class="chip" role="listitem">CCPA</span>
-              <span class="chip" role="listitem">OneTrust</span>
-              <span class="chip" role="listitem">JWT</span>
-              <span class="chip" role="listitem">OAuth</span>
-              <span class="chip" role="listitem">IAM</span>
-              <span class="chip" role="listitem">Secure data deletion &amp; access controls</span>
+              <span class="chip" role="listitem">GDPR</span><span class="chip" role="listitem">CCPA</span><span class="chip" role="listitem">OneTrust</span><span class="chip" role="listitem">JWT</span><span class="chip" role="listitem">OAuth</span><span class="chip" role="listitem">IAM</span><span class="chip" role="listitem">Subject-rights-request orchestration</span><span class="chip" role="listitem">Audit trails</span>
             </div>
           </div>
+
           <div class="skill-group fade-in-el">
             <h3>Observability &amp; Reliability</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">Structured logging</span>
-              <span class="chip" role="listitem">OpenTelemetry</span>
-              <span class="chip" role="listitem">CloudWatch monitoring + alerting</span>
+              <span class="chip" role="listitem">Structured logging</span><span class="chip" role="listitem">OpenTelemetry</span><span class="chip" role="listitem">CloudWatch monitoring + alerting</span>
             </div>
           </div>
+
           <div class="skill-group fade-in-el">
             <h3>Testing</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">Jest</span>
-              <span class="chip" role="listitem">Sinon</span>
-              <span class="chip" role="listitem">Newman</span>
-              <span class="chip" role="listitem">Mocha-Chai</span>
-              <span class="chip" role="listitem">JUnit</span>
+              <span class="chip" role="listitem">Jest</span><span class="chip" role="listitem">Sinon</span><span class="chip" role="listitem">Newman</span><span class="chip" role="listitem">Mocha-Chai</span><span class="chip" role="listitem">JUnit</span>
             </div>
           </div>
+
         </div>
 
         <details class="skill-years fade-in-el">
           <summary>Years of evidence</summary>
           <table>
-            <thead>
-              <tr><th>Skill</th><th>Years</th><th>Where used</th></tr>
-            </thead>
+            <thead><tr><th>Skill</th><th>Years</th><th>Where used</th></tr></thead>
             <tbody>
               <tr><td>Node.js</td><td>9+</td><td>WBD &middot; Swiggy &middot; PT Tujuh Asia &middot; TripBorn &middot; Freelance</td></tr>
               <tr><td>TypeScript</td><td>6+</td><td>WBD &middot; Swiggy</td></tr>
               <tr><td>AWS (overall)</td><td>7+</td><td>Swiggy &middot; PT Tujuh Asia &middot; WBD</td></tr>
               <tr><td>AWS Lambda</td><td>5+</td><td>Event processing, serverless APIs</td></tr>
               <tr><td>ECS</td><td>4+</td><td>Containerized microservices at WBD</td></tr>
-              <tr><td>SQS / SNS</td><td>5+</td><td>Event-driven pipelines (WBD, Swiggy)</td></tr>
+              <tr><td>SQS / SNS</td><td>5+</td><td>Event-driven pipelines</td></tr>
               <tr><td>DynamoDB</td><td>4+</td><td>Serverless &amp; high-scale workloads</td></tr>
-              <tr><td>Kafka</td><td>4+</td><td>Swiggy POS integrations</td></tr>
-              <tr><td>GraphQL (BFF)</td><td>4+</td><td>WBD Food Network BFF (Apollo certified)</td></tr>
+              <tr><td>Kafka</td><td>4+</td><td>Swiggy POS integrations &middot; privacy + moderation pipelines</td></tr>
+              <tr><td>GraphQL (BFF)</td><td>4+</td><td>Food Network BFF (Apollo certified)</td></tr>
               <tr><td>Microservices Architecture</td><td>7+</td><td>Swiggy &middot; WBD &middot; Fintech</td></tr>
               <tr><td>Distributed Systems</td><td>6+</td><td>Platform-scale services</td></tr>
               <tr><td>OpenTelemetry</td><td>3+</td><td>Distributed tracing</td></tr>
@@ -920,7 +898,7 @@
       </div>
     </section>
 
-    <!-- 8. CERTIFICATIONS -->
+    <!-- ── 8. CERTIFICATIONS ── -->
     <section id="certs" aria-labelledby="certs-h2">
       <div class="container">
         <h2 id="certs-h2" class="fade-in-el">Certifications</h2>
@@ -948,7 +926,6 @@
             <span class="cert-period">(2021) &mdash; Udemy</span>
           </li>
         </ul>
-
         <details class="skill-years fade-in-el" style="margin-top:1.5rem">
           <summary>Additional courses &amp; licences</summary>
           <table>
@@ -970,7 +947,7 @@
       </div>
     </section>
 
-    <!-- 9. EDUCATION -->
+    <!-- ── 9. EDUCATION ── -->
     <section id="education" aria-labelledby="edu-h2">
       <div class="container">
         <h2 id="edu-h2" class="fade-in-el">Education</h2>
@@ -989,51 +966,27 @@
       </div>
     </section>
 
-    <!-- 10. LANGUAGES -->
+    <!-- ── 10. LANGUAGES ── -->
     <section id="languages" aria-labelledby="lang-h2">
       <div class="container">
         <h2 id="lang-h2" class="fade-in-el">Languages</h2>
         <div class="lang-grid">
-          <div class="fade-in-el">
-            <div class="lang-name">Bengali</div>
-            <div class="lang-level">Native or bilingual proficiency</div>
-          </div>
-          <div class="fade-in-el">
-            <div class="lang-name">English</div>
-            <div class="lang-level">Full professional proficiency</div>
-          </div>
-          <div class="fade-in-el">
-            <div class="lang-name">Hindi</div>
-            <div class="lang-level">Limited working proficiency</div>
-          </div>
-          <div class="fade-in-el">
-            <div class="lang-name">Assamese</div>
-            <div class="lang-level">Limited working proficiency</div>
-          </div>
+          <div class="fade-in-el"><div class="lang-name">Bengali</div><div class="lang-level">Native or bilingual proficiency</div></div>
+          <div class="fade-in-el"><div class="lang-name">English</div><div class="lang-level">Full professional proficiency</div></div>
+          <div class="fade-in-el"><div class="lang-name">Hindi</div><div class="lang-level">Limited working proficiency</div></div>
+          <div class="fade-in-el"><div class="lang-name">Assamese</div><div class="lang-level">Limited working proficiency</div></div>
         </div>
       </div>
     </section>
 
-    <!-- 11. VOLUNTEER -->
+    <!-- ── 11. VOLUNTEER ── -->
     <section id="volunteer" aria-labelledby="vol-h2">
       <div class="container">
         <h2 id="vol-h2" class="fade-in-el">Volunteer</h2>
         <div class="vol-list">
-          <div class="fade-in-el">
-            <div class="vol-org">WWF-India</div>
-            <div class="vol-role">Volunteer &mdash; Environment</div>
-            <div class="vol-meta">Jun 2018 &mdash; Present</div>
-          </div>
-          <div class="fade-in-el">
-            <div class="vol-org">UNICEF</div>
-            <div class="vol-role">Volunteer &mdash; Health</div>
-            <div class="vol-meta">Jan 2021 &mdash; Jan 2024</div>
-          </div>
-          <div class="fade-in-el">
-            <div class="vol-org">Red Cross Blood Services</div>
-            <div class="vol-role">Volunteer &mdash; Health</div>
-            <div class="vol-meta">Feb 2015 &mdash; Mar 2016</div>
-          </div>
+          <div class="fade-in-el"><div class="vol-org">WWF-India</div><div class="vol-role">Volunteer &mdash; Environment</div><div class="vol-meta">Jun 2018 &mdash; Present</div></div>
+          <div class="fade-in-el"><div class="vol-org">UNICEF</div><div class="vol-role">Volunteer &mdash; Health</div><div class="vol-meta">Jan 2021 &mdash; Jan 2024</div></div>
+          <div class="fade-in-el"><div class="vol-org">Red Cross Blood Services</div><div class="vol-role">Volunteer &mdash; Health</div><div class="vol-meta">Feb 2015 &mdash; Mar 2016</div></div>
         </div>
       </div>
     </section>
@@ -1055,10 +1008,7 @@
   <script type="module">
     const observer = new IntersectionObserver(
       (entries) => entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
       }),
       { threshold: 0.08 }
     );
