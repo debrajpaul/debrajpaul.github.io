@@ -447,7 +447,7 @@
     <section id="architecture" aria-labelledby="arch-h2">
       <div class="container">
         <h2 id="arch-h2" class="fade-in-el">Architecture deep-dives</h2>
-        <p class="arch-intro fade-in-el">Three systems built at Warner Bros. Discovery (Food Network, CNN, Eurosport, and others) &mdash; internal service names are not disclosed. Plus one open-source personal project with a full diagram.</p>
+        <p class="arch-intro fade-in-el">Two systems built at Warner Bros. Discovery (Food Network, CNN, Eurosport, and others) &mdash; internal service names are not disclosed. Plus one open-source personal project with a full diagram.</p>
 
         <!-- ── 5.1 Privacy / PII Request Orchestrator ── -->
         <article class="arch-deepdive fade-in-el" id="arch-privacy" aria-labelledby="arch-privacy-h">
@@ -612,19 +612,7 @@
           </div>
         </article>
 
-        <!-- ── 5.3 Backfill Search-Indexing Pipeline ── -->
-        <article class="arch-deepdive fade-in-el" id="arch-backfill" aria-labelledby="arch-bf-h">
-          <h3 id="arch-bf-h">Backfill Search-Indexing Pipeline</h3>
-          <p class="arch-subtitle">Data engineering &middot; Offline ETL &middot; Zero impact on production DynamoDB</p>
-
-          <div class="arch-caption">
-            <p><strong>What it is.</strong> A one-time backfill that lifts a large content corpus out of production DynamoDB into OpenSearch without touching production read capacity. DynamoDB's native S3 export feeds three domain-partitioned source buckets (Items, Collections, Mappings); an AWS Glue job validates, filters, transforms, and partitions the data into Parquet (Snappy) on S3. An S3 event-per-object triggers a Node.js Lambda that parses Parquet, validates rows, batches ~1000 records at a time, and POSTs them to a search-indexing API in front of OpenSearch. Exhausted retries route to an SQS FIFO dead-letter queue for manual replay.</p>
-            <p><strong>Why this shape.</strong> A naïve table scan would burn DynamoDB read capacity and degrade product latency. The native S3 export decouples extraction from production load entirely &mdash; the rest of the pipeline is a normal S3-driven ETL. Parquet+Snappy is fast to parse in Lambda and partition-pruning friendly. The ~1000-record batch is sized against both the OpenSearch bulk-index sweet spot and the Lambda execution-time budget, avoiding timeouts on outliers.</p>
-            <p><strong>Trade-offs.</strong> Manual DLQ replay is acceptable for a one-time backfill &mdash; automating it wasn't worth the engineering cost for a single run. Dedup on the index side isn't yet implemented; an <code>op_type=upsert</code> with deterministic doc IDs is the next step if this evolves into an ongoing pipeline.</p>
-          </div>
-        </article>
-
-        <!-- ── 5.4 Full Budget App (Open Source) ── -->
+        <!-- ── 5.3 Full Budget App (Open Source) ── -->
         <article class="arch-deepdive fade-in-el" id="arch-fba" aria-labelledby="arch-fba-h">
           <h3 id="arch-fba-h">Full Budget App <span style="color:var(--accent2);font-weight:400;font-size:0.875rem">&mdash; Open Source</span></h3>
           <p class="arch-subtitle">Serverless &middot; Multi-tenant &middot; Event-driven categorisation &middot; AWS CDK &middot; <a href="https://github.com/debrajpaul/full-budget-app" rel="noopener noreferrer" target="_blank" style="color:var(--accent)">github.com/debrajpaul/full-budget-app</a></p>
