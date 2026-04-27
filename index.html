@@ -177,14 +177,24 @@
     /* ============================================================
        TIMELINE
     ============================================================ */
-    .timeline { position: relative; padding-left: 1.75rem; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 0; width: 1px; background: var(--border); }
-    .timeline li { position: relative; padding-bottom: 2rem; }
+    .timeline { position: relative; display: flex; padding-left: 0; gap: 0; overflow-x: auto; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; }
+    .timeline::before { content: ''; position: absolute; top: 4px; left: 0; right: 0; height: 1px; background: var(--border); }
+    .timeline li { flex: 1; min-width: 130px; position: relative; padding-top: 22px; padding-bottom: 0; padding-inline: 0.5rem; text-align: center; }
     .timeline li:last-child { padding-bottom: 0; }
-    .timeline-dot { position: absolute; left: -1.875rem; top: 6px; width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--accent); background: var(--bg); }
-    .timeline-company { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
-    .timeline-role { font-size: 0.875rem; color: var(--muted); }
-    .timeline-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+    .timeline-dot { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--accent); background: var(--bg); z-index: 1; }
+    .timeline-company { font-weight: 600; font-size: 0.8125rem; color: var(--text); }
+    .timeline-role { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
+    .timeline-meta { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted); margin-top: 0.15rem; }
+    @media (max-width: 640px) {
+      .timeline { display: block; padding-left: 1.75rem; overflow-x: visible; }
+      .timeline::before { left: 0; top: 6px; bottom: 0; right: auto; width: 1px; height: auto; }
+      .timeline li { padding-top: 0; padding-bottom: 2rem; padding-inline: 0; text-align: left; min-width: unset; }
+      .timeline li:last-child { padding-bottom: 0; }
+      .timeline-dot { left: -1.875rem; top: 6px; transform: none; }
+      .timeline-company { font-size: 0.9375rem; }
+      .timeline-role { font-size: 0.875rem; }
+      .timeline-meta { font-size: 0.75rem; }
+    }
 
     /* ============================================================
        SKILLS
