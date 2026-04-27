@@ -16,7 +16,7 @@ Single-file, dark-mode-default static site built from scratch. No frameworks, no
 
 - Plain HTML5 + inline CSS + vanilla ES2020 JS — one file: `index.html`
 - System font stack only — no remote fonts
-- Inline SVG for the Motif architecture diagram — no Mermaid, no D3
+- Three inline SVGs for architecture deep-dives — no Mermaid, no D3
 - `IntersectionObserver` for scroll-triggered fade-ins
 - `prefers-color-scheme` for automatic dark / light theming
 - `prefers-reduced-motion` respected
@@ -31,8 +31,8 @@ Single-file, dark-mode-default static site built from scratch. No frameworks, no
 | 1 | Hero | Name, tagline, positioning, CTA buttons |
 | 2 | By the numbers | 4 hard-metric stat tiles |
 | 3 | Open to | Availability / relocation callout |
-| 4 | Selected work | WBD · Swiggy Dineout · PT Tujuh Asia · earlier roles · Full Budget App (open source) |
-| 5 | Architecture | Motif Platform inline SVG diagram + walkthrough |
+| 4 | Selected work | Global media platform · Swiggy Dineout · PT Tujuh Asia · earlier roles · Full Budget App (open source) |
+| 5 | Architecture deep-dives | Three inline SVGs: Privacy/PII Orchestrator · Async Moderation Platform · Backfill Search-Indexing Pipeline |
 | 6 | Experience | Vertical timeline of all 7 roles |
 | 7 | Skills | Chip groups across 9 categories + years-of-evidence table |
 | 8 | Certifications | AWS, Apollo GraphQL, Udemy + 10 LinkedIn courses |
@@ -66,8 +66,9 @@ Single-file, dark-mode-default static site built from scratch. No frameworks, no
 
 ```
 debrajpaul.github.io/
-├── index.html      # entire site — HTML + CSS + JS
+├── index.html      # entire site — HTML + CSS + JS (3 inline SVG diagrams)
 ├── .nojekyll       # disables Jekyll so GitHub Pages serves the file raw
+├── .gitignore      # ignores .claude/, .vscode/, .DS_Store, node_modules, .env
 ├── LICENSE
 └── README.md
 ```
