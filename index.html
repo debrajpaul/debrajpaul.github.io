@@ -158,6 +158,12 @@
     .earlier-roles { display: flex; flex-direction: column; gap: 0.75rem; }
     .earlier-role { font-size: 0.875rem; color: var(--text); line-height: 1.6; }
     .earlier-role .er-meta { color: var(--muted); }
+    .card-opensource { border: 1px solid var(--accent2); border-radius: var(--r); padding: 2rem; background: var(--surface); }
+    .card-opensource .card-company { color: var(--accent2); }
+    .vol-list { display: flex; flex-direction: column; gap: 1rem; }
+    .vol-org { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
+    .vol-role { font-size: 0.875rem; color: var(--muted); }
+    .vol-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
 
     /* ============================================================
        ARCHITECTURE DEEP-DIVES
@@ -282,13 +288,13 @@
     <section class="section-hero" id="hero" aria-labelledby="hero-h1">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container">
-        <p class="eyebrow">Bengaluru, IN &middot; Open to remote globally</p>
+        <p class="eyebrow">Bengaluru, IN &middot; Remote-first globally &middot; Open to relocation</p>
         <h1 id="hero-h1">Debraj Paul</h1>
         <p class="hero-tagline">Senior Backend / Platform Engineer &mdash; Node.js &middot; TypeScript &middot; AWS</p>
         <p class="hero-pos">
           11+ years designing, building, and operating distributed backend systems across media, fintech, food-tech, and travel.
           Deep in AWS-native architectures, event-driven platforms, and Backend-for-Frontend GraphQL.
-          Currently shipping privacy-orchestration, multi-brand moderation, and backfill data pipelines for a global content platform supporting Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend.
+          Currently shipping privacy-orchestration and multi-brand moderation at Warner Bros. Discovery supporting Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend.
         </p>
         <div class="hero-actions">
           <a href="https://drive.google.com/uc?id=12Y6GYWJMozXBiYKcAZLqsTMT2hy86P9f&amp;export=download" class="btn-primary" rel="noopener">Download CV</a>
@@ -322,7 +328,7 @@
           <div class="metric" role="listitem">
             <span class="metric-number">6+</span>
             <span class="metric-label">Microservices orchestrated for GDPR/CCPA fan-out</span>
-            <span class="metric-sub">At a global media platform via OneTrust</span>
+            <span class="metric-sub">At Warner Bros. Discovery via OneTrust</span>
           </div>
         </div>
         <div class="c-chips fade-in-el" aria-label="Scale and compliance highlights">
@@ -338,7 +344,7 @@
     <section class="section-open-to" id="open-to">
       <div class="container">
         <blockquote class="callout-open fade-in-el">
-          <strong>Open to:</strong> Senior backend / Staff IC roles. Remote-first globally &middot; Hybrid in India &middot; Hybrid globally with employer-sponsored relocation. Comfortable across time zones.
+          <strong>Open to:</strong> Senior backend / Staff IC roles. Remote-first globally &middot; Hybrid in India &middot; Open to relocation. Comfortable across time zones.
         </blockquote>
       </div>
     </section>
@@ -352,7 +358,7 @@
           <!-- Card 1: Global media platform -->
           <article class="work-card fade-in-el" aria-labelledby="card-wbd">
             <header class="card-header">
-              <span class="card-company" id="card-wbd">global media platform <span style="color:var(--muted);font-weight:400">via Robosoft</span></span>
+              <span class="card-company" id="card-wbd">Warner Bros. Discovery <span style="color:var(--muted);font-weight:400">via Robosoft</span></span>
               <span class="card-role">Senior Software Engineer</span>
               <span class="card-dates">Aug 2021 &mdash; Present &middot; Remote</span>
             </header>
@@ -365,7 +371,7 @@
               <li>Standardized REST and GraphQL API conventions adopted across teams; cut cross-team onboarding friction.</li>
               <li>Introduced distributed tracing (OpenTelemetry) and Redis caching, reducing DB pressure and improving incident MTTR.</li>
             </ul>
-            <p class="card-note">Three of the systems I built here are walked through with architecture diagrams in the section below.</p>
+            <p class="card-note">Two of the systems I built here are walked through with architecture diagrams in the section below.</p>
           </article>
 
           <!-- Card 2: Swiggy Dineout -->
@@ -401,15 +407,25 @@
             </ul>
           </article>
 
-          <!-- Card 4: Earlier roles -->
-          <article class="card-earlier fade-in-el" aria-labelledby="card-earlier-h">
-            <h3 id="card-earlier-h">Earlier roles &mdash; 2015 &ndash; 2018</h3>
-            <div class="earlier-roles">
-              <div class="earlier-role"><strong>TripBorn</strong> <span class="er-meta">&mdash; Backend Developer &middot; Apr 2018 &ndash; Oct 2018 &middot; Bengaluru.</span> Backend services for online booking + GDS reservation workflows; introduced Redis caching to reduce DB pressure.</div>
-              <div class="earlier-role"><strong>Ekagga Technology</strong> <span class="er-meta">&mdash; Software Engineer &middot; May 2017 &ndash; Apr 2018 &middot; Bengaluru.</span> Java/Spring Boot + PostgreSQL backend for an enterprise news and analytics platform.</div>
-              <div class="earlier-role"><strong>CSIR &mdash; URDIP (FAO project)</strong> <span class="er-meta">&mdash; SDE Intern &middot; Jan 2015 &ndash; Jun 2015 &middot; Bengaluru.</span> Neural-network configurations for food import/export analytics in Core Java; visualized with JFreeChart.</div>
-            </div>
+          <!-- Card 5: Open Source -->
+          <article class="card-opensource fade-in-el" aria-labelledby="card-oss">
+            <header class="card-header">
+              <span class="card-company" id="card-oss">Full Budget App</span>
+              <span class="card-role">Open Source &middot; Personal project</span>
+              <span class="card-dates">Aug 2025 &middot; <a href="https://github.com/debrajpaul/full-budget-app" rel="noopener noreferrer" target="_blank" style="font-size:0.75rem">github &rarr;</a></span>
+            </header>
+            <p class="card-context">Modular, multi-tenant SaaS budgeting platform. Ingests bank statements, enriches transactions via rule-based + AI categorisation, and serves a tenant-aware GraphQL API. Built as a pnpm monorepo on AWS serverless.</p>
+            <ul class="card-outcomes">
+              <li><strong>3 Lambda services</strong> + <strong>5 DynamoDB tables</strong> fully provisioned via AWS CDK; on-demand pricing throughout.</li>
+              <li>Fully event-driven ingestion: <strong>S3 &rarr; SQS &rarr; txn-loaders Lambda &rarr; DynamoDB Stream &rarr; tag-loaders Lambda</strong> &mdash; zero polling.</li>
+              <li>Multi-tenant isolation via <code>tenantId</code> partition key across all tables; JWT auth via SSM Parameter Store.</li>
+              <li>Hybrid categorisation: deterministic <strong>NLP rule engine</strong> first; <strong>Amazon Bedrock (Mistral)</strong> fallback for low-confidence matches &mdash; cost-optimised.</li>
+              <li>GraphQL API with <strong>Apollo Server 5</strong> &mdash; 11 queries, 9 mutations; financial reviews, forecasts, budgets, savings goals.</li>
+              <li>Observability: <strong>AWS X-Ray</strong> (10% sampling), CloudWatch alarms (errors, duration, throttle), Winston structured logging, Prometheus <code>/metrics</code> endpoint.</li>
+            </ul>
+            <p class="card-note">Architecture diagram below &darr;</p>
           </article>
+
 
         </div>
       </div>
@@ -419,7 +435,7 @@
     <section id="architecture" aria-labelledby="arch-h2">
       <div class="container">
         <h2 id="arch-h2" class="fade-in-el">Architecture deep-dives</h2>
-        <p class="arch-intro fade-in-el">Three systems built for the global content platform powering Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend &mdash; internal service names are not disclosed.</p>
+        <p class="arch-intro fade-in-el">Two systems built at Warner Bros. Discovery (Food Network, CNN, Eurosport, and others). Plus one open-source personal project with a full diagram.</p>
 
         <!-- ── 5.1 Privacy / PII Request Orchestrator ── -->
         <article class="arch-deepdive fade-in-el" id="arch-privacy" aria-labelledby="arch-privacy-h">
@@ -568,7 +584,6 @@
           <div class="arch-caption">
             <p><strong>What it is.</strong> A user privacy request (right of access or right to erasure) enters via OneTrust and is forwarded by a third-party broker to the Compliance Request Orchestrator. The orchestrator looks up which downstream services hold PII for that user via a service registry, then fans out across a Kafka request stream. Each downstream consumes its slice, processes (delete or export), and publishes a per-service result. The orchestrator aggregates results and calls the broker&rsquo;s fulfillment API once the aggregate state flips to complete.</p>
             <p><strong>Why this shape.</strong> The subject-request-ID drives idempotency end-to-end, so re-deliveries at any hop are safe. A service registry &mdash; rather than hardcoded routing &mdash; lets new PII-holding services join compliance by registering, with no orchestrator change. Two separate Kafka streams (request out, result in) give each downstream a clean inbound contract and the orchestrator a clean aggregation contract. State is split into per-service status and an aggregate; the aggregate flips to <code>complete</code> only when every individual settles, gating the fulfillment callback.</p>
-            <p><strong>Trade-offs.</strong> Aggregating across N independent consumers makes overall latency a function of the slowest downstream &mdash; acceptable for a regulator-deadline-bounded workflow (days, not seconds), and worth it for the auditability and per-service ownership clarity.</p>
           </div>
         </article>
 
@@ -577,277 +592,135 @@
           <h3 id="arch-mod-h">Multi-Brand Async Moderation Platform</h3>
           <p class="arch-subtitle">Trust &amp; Safety &middot; Multi-tenant &middot; In-house text + image moderation</p>
 
-          <div class="arch-diagram-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" width="100%" height="auto"
-                 role="img" aria-labelledby="mod-title mod-desc">
-              <title id="mod-title">Multi-Brand Async Moderation Platform Architecture</title>
-              <desc id="mod-desc">Top to bottom: Brand surfaces feed through an Internal API Gateway (with CIAM identity check), then to a Submission API Kafka producer (primary actor). A Kafka moderation request stream (with replay) feeds an Inbound Processor Lambda that dispatches to two in-house classifiers: Moderation Processor for text/nicknames and Media Processor for images (both green). Verdicts land on a Kafka moderation response stream (with replay). An Outbound Processor Lambda notifies the originating brand surface. Per-brand policy (banned terms, severity thresholds) is hot-reloadable. State machine: Submitted to Client, Pending Vendor, Responded Vendor, Responded Client.</desc>
-              <defs>
-                <marker id="ma" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#9b9ba3"/></marker>
-                <marker id="ma-p" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c5cff"/></marker>
-                <marker id="ma-g" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#23d18b"/></marker>
-              </defs>
-
-              <!-- Brand surfaces (wide, top) -->
-              <rect x="195" y="28" width="420" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="405" y="48" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Brand surfaces (web + mobile)</text>
-              <text x="405" y="63" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">N consumer brands</text>
-
-              <!-- Arrow down: Brand → API GW -->
-              <line x1="405" y1="72" x2="405" y2="98" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-
-              <!-- Internal API Gateway -->
-              <rect x="260" y="98" width="290" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="405" y="118" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Internal API Gateway</text>
-              <text x="405" y="133" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">auth &middot; rate-limit &middot; brand routing</text>
-
-              <!-- CIAM side branch -->
-              <line x1="550" y1="120" x2="578" y2="120" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-              <rect x="580" y="98" width="175" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="668" y="116" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">CIAM / Identity</text>
-              <text x="668" y="131" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">Service</text>
-
-              <!-- Arrow down: API GW → Submission -->
-              <line x1="405" y1="142" x2="405" y2="166" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-
-              <!-- Submission API (purple, primary actor) -->
-              <rect x="260" y="166" width="290" height="44" rx="3" fill="none" stroke="#7c5cff" stroke-width="1.5"/>
-              <text x="405" y="186" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7c5cff" font-weight="bold">Submission API</text>
-              <text x="405" y="201" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">(Kafka producer)</text>
-
-              <!-- Dashed arrow down: Submission → Kafka Req -->
-              <line x1="405" y1="210" x2="405" y2="234" stroke="#7c5cff" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ma-p)"/>
-
-              <!-- Kafka Moderation Request Stream (with replay) -->
-              <rect x="260" y="234" width="290" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="370" y="254" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Kafka &#8211; Moderation Request Stream</text>
-              <text x="536" y="254" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">&#x21ba; replay</text>
-              <text x="405" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6b6b7a">durable &middot; partition per brand</text>
-
-              <!-- Dashed arrow down: Kafka Req → Inbound -->
-              <line x1="405" y1="278" x2="405" y2="302" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ma)"/>
-
-              <!-- Inbound Processor (Lambda) -->
-              <rect x="285" y="302" width="240" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="405" y="322" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Inbound Processor (Lambda)</text>
-              <text x="405" y="337" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">dispatch by content type</text>
-
-              <!-- Fan arrows: Inbound → Moderation (left) and Media (right) -->
-              <polyline points="345,346 345,362 145,362 145,374" fill="none" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-              <polyline points="465,346 465,362 655,362 655,374" fill="none" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-
-              <!-- Moderation Processor (left, green, in-house) -->
-              <rect x="40" y="374" width="210" height="54" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
-              <text x="145" y="394" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Moderation Processor</text>
-              <text x="145" y="408" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">text + nicknames</text>
-              <text x="145" y="421" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#23d18b">in-house</text>
-
-              <!-- Media Processor (right, green, in-house) -->
-              <rect x="545" y="374" width="195" height="54" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
-              <text x="643" y="394" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Media Processor</text>
-              <text x="643" y="408" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">images</text>
-              <text x="643" y="421" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#23d18b">in-house</text>
-
-              <!-- Asset store attached to Media Processor (right side) -->
-              <line x1="740" y1="392" x2="757" y2="392" stroke="#1f1f24" stroke-width="1"/>
-              <line x1="740" y1="410" x2="757" y2="410" stroke="#1f1f24" stroke-width="1"/>
-              <rect x="759" y="374" width="90" height="24" rx="2" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="804" y="390" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">S3 (image bytes)</text>
-              <rect x="759" y="402" width="90" height="26" rx="2" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="804" y="416" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">DynamoDB</text>
-              <text x="804" y="424" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6b6b7a">(record + S3 key)</text>
-
-              <!-- Per-brand policy chip (far right, green dashed) -->
-              <rect x="760" y="302" width="185" height="60" rx="3" fill="none" stroke="#23d18b" stroke-width="1" stroke-dasharray="3,2"/>
-              <text x="852" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#23d18b">Per-brand policy</text>
-              <text x="852" y="334" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">hot-reload</text>
-              <text x="852" y="346" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">banned terms</text>
-              <text x="852" y="358" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">+ severity thresholds</text>
-              <!-- Connect per-brand to Media Processor (right side) -->
-              <line x1="760" y1="338" x2="743" y2="338" stroke="#23d18b" stroke-width="1" stroke-dasharray="3,2"/>
-              <!-- Connect per-brand to Moderation (overhead arc) -->
-              <polyline points="852,302 852,282 145,282 145,374" fill="none" stroke="#23d18b" stroke-width="1" stroke-dasharray="3,2"/>
-
-              <!-- Response arrows: both processors → Kafka Resp (converge) -->
-              <!-- Moderation → bus at y=466 -->
-              <polyline points="145,428 145,466 400,466 400,488" fill="none" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ma)"/>
-              <!-- Media → bus at y=466 (from bottom of DynamoDB at y=428) -->
-              <polyline points="643,428 643,466 406,466" fill="none" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3"/>
-
-              <!-- Kafka Moderation Response Stream (with replay) -->
-              <rect x="260" y="488" width="290" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="368" y="508" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Kafka &#8211; Moderation Response Stream</text>
-              <text x="536" y="508" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">&#x21ba; replay</text>
-              <text x="405" y="524" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6b6b7a">verdict per content item</text>
-
-              <!-- Dashed arrow down: Kafka Resp → Outbound -->
-              <line x1="405" y1="532" x2="405" y2="556" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ma)"/>
-
-              <!-- Outbound Processor (Lambda) -->
-              <rect x="260" y="556" width="190" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="355" y="576" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Outbound Processor</text>
-              <text x="355" y="590" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">(Lambda)</text>
-
-              <!-- Arrow right: Outbound → notify -->
-              <line x1="450" y1="578" x2="473" y2="578" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-
-              <!-- Notify box -->
-              <rect x="475" y="556" width="200" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="575" y="574" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">notify originating</text>
-              <text x="575" y="590" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">brand surface</text>
-
-              <!-- State machine pill strip -->
-              <text x="405" y="620" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6b6b7a" letter-spacing="1">STATE MACHINE</text>
-              <!-- Pill 1 -->
-              <rect x="30" y="626" width="130" height="22" rx="10" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="95" y="641" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">Submitted::Client</text>
-              <line x1="160" y1="637" x2="178" y2="637" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-              <!-- Pill 2 -->
-              <rect x="180" y="626" width="130" height="22" rx="10" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="245" y="641" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">Pending::Vendor</text>
-              <line x1="310" y1="637" x2="328" y2="637" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-              <!-- Pill 3 -->
-              <rect x="330" y="626" width="140" height="22" rx="10" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="400" y="641" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">Responded::Vendor</text>
-              <line x1="470" y1="637" x2="488" y2="637" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-              <!-- Pill 4 -->
-              <rect x="490" y="626" width="140" height="22" rx="10" fill="none" stroke="#23d18b" stroke-width="1"/>
-              <text x="560" y="641" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#23d18b">Responded::Client</text>
-
-              <!-- Legend -->
-              <g transform="translate(740,600)">
-                <text x="0" y="0" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">LEGEND</text>
-                <line x1="0" y1="13" x2="28" y2="13" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ma)"/>
-                <text x="32" y="17" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">sync HTTP</text>
-                <line x1="0" y1="28" x2="28" y2="28" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ma)"/>
-                <text x="32" y="32" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">async event</text>
-                <rect x="0" y="40" width="8" height="8" fill="none" stroke="#7c5cff" stroke-width="1"/>
-                <text x="12" y="48" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">primary actor</text>
-                <rect x="0" y="56" width="8" height="8" fill="none" stroke="#23d18b" stroke-width="1"/>
-                <text x="12" y="64" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">in-house / compliance</text>
-              </g>
-            </svg>
-          </div>
-
           <div class="arch-caption">
-            <p><strong>What it is.</strong> User-generated content &mdash; comments, nicknames, image uploads &mdash; from many brand surfaces flows through an internal gateway, is identity-checked via CIAM, then published to a Kafka request stream. An inbound Lambda dispatches to two in-house classifiers: a moderation processor for text and nicknames, and a media processor for images. Verdicts land back on a separate response stream where an outbound Lambda notifies the originating brand surface.</p>
-            <p><strong>Why this shape.</strong> Two streams (request out, response in) localize replay: a failure in moderation never re-drives the entire pipeline. Both classifiers are owned in-house &mdash; text moderation was migrated off a third-party vendor, image moderation was absorbed from a sister team &mdash; eliminating vendor cost and giving policy ownership back to product. Per-brand policy (banned terms, severity thresholds) is hot-reloadable, so trust-and-safety teams ship rule changes without redeploying the moderator. Image bytes live in S3; record metadata and S3 keys live in DynamoDB, keeping queries cheap and bytes cold-storage-cheap.</p>
-            <p><strong>Roadmap.</strong> Soft-publish &mdash; content visible only to its author until a non-violation verdict &mdash; is a planned extension of the state machine; today, content flows through with verdicts applied retroactively.</p>
+            <p><strong>What it is.</strong> User-generated content &mdash; comments, nicknames, image uploads &mdash; from multiple brand surfaces flows through an internal API gateway, is identity-checked via CIAM, then published to a Kafka request stream. An inbound Lambda dispatches to two in-house classifiers: a text moderation processor for comments and nicknames, and a media processor for images. Both publish verdicts to a separate Kafka response stream; an outbound Lambda picks up each verdict and notifies the originating brand surface. Image bytes are stored in S3; record metadata and S3 keys live in DynamoDB.</p>
+            <p><strong>Why this shape.</strong> Two streams (request out, response in) localise replay &mdash; a failure in moderation never re-drives the entire pipeline. Both classifiers are owned in-house: text moderation was migrated off a third-party vendor, image moderation absorbed from a sister team, eliminating vendor cost and returning policy ownership to the product team. Per-brand rules (banned terms, severity thresholds) are hot-reloadable without redeployment.</p>
           </div>
         </article>
 
-        <!-- ── 5.3 Backfill Search-Indexing Pipeline ── -->
-        <article class="arch-deepdive fade-in-el" id="arch-backfill" aria-labelledby="arch-backfill-h">
-          <h3 id="arch-backfill-h">Backfill Search-Indexing Pipeline</h3>
-          <p class="arch-subtitle">Data engineering &middot; Offline ETL &middot; Zero impact on production DynamoDB</p>
+        <!-- ── 5.3 Full Budget App (Open Source) ── -->
+        <article class="arch-deepdive fade-in-el" id="arch-fba" aria-labelledby="arch-fba-h">
+          <h3 id="arch-fba-h">Full Budget App <span style="color:var(--accent2);font-weight:400;font-size:0.875rem">&mdash; Open Source</span></h3>
+          <p class="arch-subtitle">Serverless &middot; Multi-tenant &middot; Event-driven categorisation &middot; AWS CDK &middot; <a href="https://github.com/debrajpaul/full-budget-app" rel="noopener noreferrer" target="_blank" style="color:var(--accent)">github.com/debrajpaul/full-budget-app</a></p>
 
           <div class="arch-diagram-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 710" width="100%" height="auto"
-                 role="img" aria-labelledby="bfill-title bfill-desc">
-              <title id="bfill-title">Backfill Search-Indexing Pipeline Architecture</title>
-              <desc id="bfill-desc">Single-column top-to-bottom pipeline. Production DynamoDB (with no-RCU-impact badge) exports natively to S3. Three domain-partitioned S3 source buckets (Items, Collections, Mappings) feed an AWS Glue job (primary actor) that validates, filters, transforms, and partitions data into Parquet Snappy on S3. An S3-event-per-object triggers a Node.js Lambda that parses Parquet, validates, batches approximately 1000 records, and POSTs to a Search Indexing API in front of OpenSearch. Exhausted retries go to an SQS FIFO DLQ for manual replay. CloudWatch logs, metrics, and alarms run cross-cutting on the right edge.</desc>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="100%" height="auto"
+                 role="img" aria-labelledby="fba-title fba-desc">
+              <title id="fba-title">Full Budget App Architecture</title>
+              <desc id="fba-desc">Client sends GraphQL requests through API Gateway to the GraphQL Lambda (Apollo Server, primary actor). The lambda reads and writes five DynamoDB tables: Users, Transactions (with stream), Budgets, Recurring Transactions, and Categories. For statement uploads the lambda writes to an S3 bucket; an S3 PUT event triggers an SQS message; SQS triggers the txn-loaders Lambda which parses bank statements (HDFC, SBI, Axis) and writes normalised transactions to DynamoDB. The DynamoDB stream on the Transactions table triggers the tag-loaders Lambda which applies a deterministic NLP rule engine first, then falls back to Amazon Bedrock (Mistral) for low-confidence matches, and writes the result to the Categories table. AWS X-Ray, CloudWatch, and SSM Parameter Store provide observability and configuration.</desc>
               <defs>
-                <marker id="ba" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#9b9ba3"/></marker>
-                <marker id="ba-p" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c5cff"/></marker>
-                <marker id="ba-g" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#23d18b"/></marker>
+                <marker id="fa" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#9b9ba3"/></marker>
+                <marker id="fa-p" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c5cff"/></marker>
+                <marker id="fa-g" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#23d18b"/></marker>
               </defs>
 
-              <!-- Production DynamoDB -->
-              <rect x="310" y="28" width="320" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="470" y="46" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Production DynamoDB</text>
-              <text x="470" y="62" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">source of record</text>
+              <!-- column headers -->
+              <text x="88"  y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">CLIENT / ENTRY</text>
+              <text x="480" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">COMPUTE</text>
+              <text x="730" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">STORAGE / ASYNC</text>
 
-              <!-- no RCU impact badge (green) -->
-              <rect x="644" y="32" width="118" height="22" rx="10" fill="none" stroke="#23d18b" stroke-width="1"/>
-              <text x="703" y="47" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#23d18b">no RCU impact</text>
+              <!-- User / Client -->
+              <rect x="14"  y="34" width="148" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="88"  y="56" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Client (web / mobile)</text>
 
-              <!-- Arrow with label: DDB → S3 export -->
-              <line x1="470" y1="72" x2="470" y2="104" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ba)"/>
-              <text x="478" y="91" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">native DDB &#x2192; S3 export</text>
+              <!-- API Gateway -->
+              <rect x="14"  y="88" width="148" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="88"  y="110" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">API Gateway</text>
 
-              <!-- S3 source buckets group -->
-              <rect x="96" y="104" width="580" height="70" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="5,3"/>
-              <text x="156" y="120" font-family="ui-monospace,monospace" font-size="7" fill="#6b6b7a" letter-spacing="1">S3 SOURCE BUCKETS (per content domain)</text>
-              <rect x="114" y="126" width="150" height="34" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="189" y="147" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Items</text>
-              <rect x="280" y="126" width="170" height="34" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="365" y="147" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Collections</text>
-              <rect x="466" y="126" width="150" height="34" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="541" y="147" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">Mappings</text>
+              <!-- GraphQL Lambda (purple, primary) -->
+              <rect x="200" y="60" width="290" height="64" rx="3" fill="none" stroke="#7c5cff" stroke-width="1.5"/>
+              <text x="345" y="84"  text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7c5cff" font-weight="bold">GraphQL Lambda</text>
+              <text x="345" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">Apollo Server 5 &middot; JWT &middot; X-Ray tracing</text>
+              <text x="345" y="115" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a">11 queries &middot; 9 mutations &middot; multi-tenant</text>
 
-              <!-- Arrow: S3 buckets → Glue -->
-              <line x1="470" y1="174" x2="470" y2="205" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ba)"/>
+              <!-- DynamoDB group -->
+              <rect x="200" y="158" width="285" height="210" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="5,3"/>
+              <text x="290" y="174" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3" letter-spacing="1">DYNAMODB (on-demand &middot; tenantId PK)</text>
+              <rect x="208" y="180" width="268" height="28" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="342" y="198" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Users</text>
+              <rect x="208" y="216" width="268" height="28" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
+              <text x="310" y="234" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Transactions</text>
+              <rect x="390" y="216" width="80" height="28" rx="3" fill="none" stroke="#23d18b" stroke-width="1" stroke-dasharray="3,2"/>
+              <text x="430" y="234" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#23d18b">stream</text>
+              <rect x="208" y="252" width="268" height="28" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="342" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Budgets</text>
+              <rect x="208" y="288" width="268" height="28" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="342" y="306" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Recurring Transactions</text>
+              <rect x="208" y="330" width="268" height="28" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
+              <text x="342" y="348" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Categories (output of tag-loaders)</text>
 
-              <!-- AWS Glue job (primary actor, purple) -->
-              <rect x="290" y="205" width="360" height="70" rx="3" fill="none" stroke="#7c5cff" stroke-width="1.5"/>
-              <text x="470" y="229" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7c5cff" font-weight="bold">AWS Glue job</text>
-              <text x="470" y="245" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">validate &middot; filter &middot; transform &middot; partition</text>
-              <text x="470" y="261" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a">Spark on managed infra &middot; no server provisioning</text>
+              <!-- S3 Bucket -->
+              <rect x="550" y="60" width="160" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="630" y="82" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">S3 (statement uploads)</text>
 
-              <!-- Arrow: Glue → S3 output -->
-              <line x1="470" y1="275" x2="470" y2="305" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ba)"/>
+              <!-- SQS -->
+              <rect x="550" y="120" width="160" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="630" y="138" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">SQS Queue</text>
+              <text x="630" y="151" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">batch 10 &middot; 300s visibility</text>
 
-              <!-- S3 output (Parquet) -->
-              <rect x="290" y="305" width="360" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="470" y="325" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">S3 output &mdash; Parquet (Snappy)</text>
-              <text x="470" y="340" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">partitioned per entity</text>
+              <!-- txn-loaders Lambda -->
+              <rect x="548" y="186" width="262" height="52" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
+              <text x="679" y="208" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">txn-loaders Lambda</text>
+              <text x="679" y="224" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">parse (HDFC / SBI / Axis) &middot; normalise &middot; write</text>
 
-              <!-- Dashed arrow + label: S3 event-per-object -->
-              <line x1="470" y1="349" x2="470" y2="380" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ba)"/>
-              <text x="478" y="368" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">S3 event-per-object</text>
+              <!-- tag-loaders Lambda (green) -->
+              <rect x="548" y="280" width="262" height="60" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
+              <text x="679" y="302" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">tag-loaders Lambda</text>
+              <text x="679" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">NLP rule engine (deterministic first)</text>
+              <text x="679" y="332" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#23d18b">Amazon Bedrock fallback (Mistral)</text>
 
-              <!-- Lambda (Node.js) -->
-              <rect x="270" y="380" width="400" height="70" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="470" y="402" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Lambda (Node.js)</text>
-              <text x="470" y="418" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">parse Parquet &middot; validate &middot; batch ~1000 &middot; POST</text>
-              <text x="470" y="434" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a">idempotent on doc ID &middot; exponential backoff</text>
+              <!-- Bedrock box -->
+              <rect x="548" y="378" width="262" height="36" rx="3" fill="none" stroke="#23d18b" stroke-width="1" stroke-dasharray="4,2"/>
+              <text x="679" y="396" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#23d18b">Amazon Bedrock (Mistral)</text>
+              <text x="679" y="410" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">low-confidence matches only</text>
 
-              <!-- DLQ branch: Lambda → SQS FIFO + DLQ -->
-              <line x1="670" y1="412" x2="698" y2="412" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ba)"/>
-              <text x="680" y="406" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">exhausted retries</text>
-              <rect x="700" y="388" width="182" height="48" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="791" y="408" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#ededf0">SQS FIFO + DLQ</text>
-              <text x="791" y="422" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">manual replay</text>
+              <!-- SSM Parameter Store -->
+              <rect x="820" y="60" width="128" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="3,2"/>
+              <text x="884" y="79" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">SSM Param Store</text>
+              <text x="884" y="91" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">JWT secret</text>
 
-              <!-- Arrow: Lambda → Search Indexing API -->
-              <line x1="470" y1="450" x2="470" y2="478" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ba)"/>
+              <!-- Observability band -->
+              <rect x="14" y="445" width="934" height="40" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="6,3"/>
+              <text x="481" y="462" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">OBSERVABILITY</text>
+              <text x="481" y="477" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">AWS X-Ray (10% sampling) &middot; CloudWatch alarms (errors / duration / throttle) &middot; Winston logs &middot; Prometheus /metrics</text>
 
-              <!-- Search Indexing API -->
-              <rect x="320" y="478" width="300" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="470" y="498" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">Search Indexing API</text>
-              <text x="470" y="513" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">bulk-index endpoint &middot; ~1000 docs/batch</text>
-
-              <!-- Arrow: Search API → OpenSearch -->
-              <line x1="470" y1="522" x2="470" y2="550" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ba)"/>
-
-              <!-- OpenSearch -->
-              <rect x="320" y="550" width="300" height="44" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
-              <text x="470" y="570" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#ededf0">OpenSearch</text>
-              <text x="470" y="585" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3">search index &middot; content corpus</text>
-
-              <!-- CloudWatch vertical band (right edge) -->
-              <rect x="902" y="28" width="50" height="566" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="5,3"/>
-              <text x="927" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3" transform="rotate(-90 927 320)">CloudWatch &middot; logs &middot; metrics &middot; alarms</text>
+              <!-- ARROWS -->
+              <line x1="88" y1="70" x2="88" y2="86" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+              <line x1="162" y1="106" x2="198" y2="92" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+              <line x1="280" y1="124" x2="280" y2="156" stroke="#7c5cff" stroke-width="1" marker-end="url(#fa-p)"/>
+              <line x1="310" y1="156" x2="310" y2="124" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#fa)"/>
+              <line x1="490" y1="80" x2="548" y2="78" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+              <text x="518" y="74" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">upload</text>
+              <line x1="630" y1="96" x2="630" y2="118" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa)"/>
+              <text x="643" y="112" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">S3 event</text>
+              <line x1="630" y1="157" x2="630" y2="184" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa)"/>
+              <polyline points="548,218 490,218 490,230" fill="none" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+              <text x="519" y="213" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">write</text>
+              <polyline points="476,230 476,310 546,310" fill="none" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa)"/>
+              <text x="490" y="282" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">DDB stream</text>
+              <line x1="679" y1="340" x2="679" y2="376" stroke="#23d18b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa-g)"/>
+              <text x="693" y="364" font-family="ui-monospace,monospace" font-size="7" fill="#23d18b">AI fallback</text>
+              <polyline points="548,330 490,330 490,344" fill="none" stroke="#23d18b" stroke-width="1" marker-end="url(#fa-g)"/>
+              <text x="519" y="326" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#23d18b">categorise</text>
+              <line x1="820" y1="78" x2="492" y2="84" stroke="#1f1f24" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#fa)"/>
 
               <!-- Legend -->
-              <g transform="translate(30,600)">
-                <text x="0" y="0" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a" letter-spacing="1">LEGEND</text>
-                <line x1="0" y1="13" x2="28" y2="13" stroke="#9b9ba3" stroke-width="1" marker-end="url(#ba)"/>
-                <text x="32" y="17" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">sync / batch write</text>
-                <line x1="0" y1="28" x2="28" y2="28" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ba)"/>
-                <text x="32" y="32" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">async event</text>
-                <rect x="0" y="40" width="8" height="8" fill="none" stroke="#7c5cff" stroke-width="1"/>
-                <text x="12" y="48" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">primary actor</text>
-                <rect x="0" y="56" width="8" height="8" fill="none" stroke="#23d18b" stroke-width="1"/>
-                <text x="12" y="64" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">no production impact</text>
+              <g transform="translate(14,422)">
+                <line x1="0" y1="8" x2="28" y2="8" stroke="#9b9ba3" stroke-width="1" marker-end="url(#fa)"/>
+                <text x="32" y="12" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">sync</text>
+                <line x1="75" y1="8" x2="103" y2="8" stroke="#9b9ba3" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#fa)"/>
+                <text x="107" y="12" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">async / event</text>
+                <rect x="175" y="2" width="8" height="8" fill="none" stroke="#7c5cff" stroke-width="1"/>
+                <text x="187" y="10" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">primary actor</text>
+                <rect x="272" y="2" width="8" height="8" fill="none" stroke="#23d18b" stroke-width="1"/>
+                <text x="284" y="10" font-family="ui-monospace,monospace" font-size="7" fill="#9b9ba3">AI / categorisation</text>
               </g>
             </svg>
           </div>
 
           <div class="arch-caption">
-            <p><strong>What it is.</strong> A one-time backfill that lifts a large content corpus out of production DynamoDB into OpenSearch without touching production read capacity. DynamoDB&rsquo;s native S3 export feeds three domain-partitioned source buckets; an AWS Glue job validates, filters, transforms, and partitions the data into Parquet (Snappy) on S3. An S3 event-per-object triggers a Node.js Lambda that parses Parquet, validates rows, batches ~1000 records at a time, and POSTs them to a search-indexing API in front of OpenSearch.</p>
-            <p><strong>Why this shape.</strong> A na&iuml;ve table scan would burn DynamoDB read capacity and degrade product latency. The native S3 export decouples extraction from production load entirely &mdash; the rest of the pipeline becomes a normal S3-driven ETL. Parquet+Snappy is fast to parse in Lambda and partition-pruning friendly. The ~1000-record batch is sized against both the OpenSearch bulk-index sweet spot and the Lambda execution-time budget, avoiding timeouts on outliers.</p>
-            <p><strong>Trade-offs.</strong> Manual DLQ replay is acceptable for a one-time backfill &mdash; automating it wasn&rsquo;t worth the engineering cost for a single run. Dedup on the index side isn&rsquo;t yet implemented; an <code>op_type=upsert</code> with deterministic doc IDs is the next step if this evolves into an ongoing pipeline. The script lives in its own repo, separate from product services, since backfill code is naturally short-lived.</p>
+            <p><strong>What it is.</strong> A multi-tenant serverless budgeting platform built as a pnpm monorepo on AWS. Users upload bank statements (HDFC, SBI, Axis &mdash; PDF or CSV) via a GraphQL mutation; the statement lands in S3, an S3 event queues a message in SQS, and the txn-loaders Lambda parses and normalises the transactions into DynamoDB. A DynamoDB stream on the Transactions table immediately triggers the tag-loaders Lambda, which applies a deterministic NLP rule engine for known merchants and categories, falling back to Amazon Bedrock (Mistral) only for low-confidence matches. All five DynamoDB tables use <code>tenantId</code> as the partition key, giving hard data-boundary isolation between users.</p>
+            <p><strong>Why this shape.</strong> S3 &rarr; SQS decouples ingestion from parsing &mdash; spiky upload volumes don&rsquo;t block the GraphQL API. DynamoDB Streams replace polling entirely: as soon as a transaction is written, the categorisation worker fires. The hybrid NLP+AI strategy keeps Bedrock calls (and their cost) to a minimum; most common merchants are classified by rules in under a millisecond. AWS CDK provisions all resources &mdash; tables, queues, buckets, alarms, X-Ray groups &mdash; as reproducible stacks with explicit dependency ordering.</p>
           </div>
         </article>
 
@@ -861,7 +734,7 @@
         <ol class="timeline">
           <li class="fade-in-el">
             <div class="timeline-dot" aria-hidden="true"></div>
-            <div class="timeline-company">global media platform <span style="color:var(--muted);font-weight:400;font-size:0.875rem">via Robosoft</span></div>
+            <div class="timeline-company">Warner Bros. Discovery <span style="color:var(--muted);font-weight:400;font-size:0.875rem">via Robosoft</span></div>
             <div class="timeline-role">Senior Software Engineer</div>
             <div class="timeline-meta">Aug 2021 &mdash; Present &middot; Remote (Washington DC / Bengaluru)</div>
           </li>
@@ -928,7 +801,7 @@
           <div class="skill-group fade-in-el">
             <h3>Cloud &amp; DevOps</h3>
             <div class="chips" role="list">
-              <span class="chip" role="listitem">AWS Lambda</span><span class="chip" role="listitem">ECS</span><span class="chip" role="listitem">SQS</span><span class="chip" role="listitem">SNS</span><span class="chip" role="listitem">S3</span><span class="chip" role="listitem">IAM</span><span class="chip" role="listitem">DynamoDB</span><span class="chip" role="listitem">RDS</span><span class="chip" role="listitem">Glue</span><span class="chip" role="listitem">OpenSearch</span><span class="chip" role="listitem">Docker</span><span class="chip" role="listitem">Jenkins</span><span class="chip" role="listitem">GitHub Actions</span><span class="chip" role="listitem">CircleCI</span><span class="chip" role="listitem">IaC (CDK / CloudFormation)</span>
+              <span class="chip" role="listitem">AWS Lambda</span><span class="chip" role="listitem">ECS</span><span class="chip" role="listitem">SQS</span><span class="chip" role="listitem">SNS</span><span class="chip" role="listitem">S3</span><span class="chip" role="listitem">IAM</span><span class="chip" role="listitem">DynamoDB</span><span class="chip" role="listitem">RDS</span><span class="chip" role="listitem">Glue</span><span class="chip" role="listitem">OpenSearch</span><span class="chip" role="listitem">Amazon Bedrock</span><span class="chip" role="listitem">Docker</span><span class="chip" role="listitem">Jenkins</span><span class="chip" role="listitem">GitHub Actions</span><span class="chip" role="listitem">CircleCI</span><span class="chip" role="listitem">IaC (CDK / CloudFormation)</span>
             </div>
           </div>
 
@@ -981,19 +854,19 @@
           <table>
             <thead><tr><th>Skill</th><th>Years</th><th>Where used</th></tr></thead>
             <tbody>
-              <tr><td>Node.js</td><td>8+</td><td>global media platform &middot; Swiggy &middot; PT Tujuh Asia &middot; TripBorn &middot; Freelance</td></tr>
-              <tr><td>TypeScript</td><td>8+</td><td>global media platform &middot; Swiggy</td></tr>
-              <tr><td>AWS (overall)</td><td>11+</td><td>Swiggy &middot; PT Tujuh Asia &middot; global media platform</td></tr>
+              <tr><td>Node.js</td><td>8+</td><td>Warner Bros. Discovery &middot; Swiggy &middot; PT Tujuh Asia &middot; TripBorn &middot; Freelance</td></tr>
+              <tr><td>TypeScript</td><td>8+</td><td>Warner Bros. Discovery &middot; Swiggy</td></tr>
+              <tr><td>AWS (overall)</td><td>11+</td><td>Swiggy &middot; PT Tujuh Asia &middot; Warner Bros. Discovery</td></tr>
               <tr><td>AWS Lambda</td><td>8+</td><td>Event processing, serverless APIs</td></tr>
-              <tr><td>ECS</td><td>6+</td><td>Containerized microservices at the global media platform</td></tr>
+              <tr><td>ECS</td><td>6+</td><td>Containerized microservices at Warner Bros. Discovery</td></tr>
               <tr><td>SQS / SNS</td><td>6+</td><td>Event-driven pipelines</td></tr>
               <tr><td>DynamoDB</td><td>6+</td><td>Serverless &amp; high-scale workloads</td></tr>
               <tr><td>Kafka</td><td>8+</td><td>Swiggy POS integrations &middot; privacy + moderation pipelines</td></tr>
               <tr><td>GraphQL (BFF)</td><td>5+</td><td>Food Network BFF (Apollo certified)</td></tr>
-              <tr><td>Microservices Architecture</td><td>8+</td><td>Swiggy &middot; global media platform &middot; Fintech</td></tr>
+              <tr><td>Microservices Architecture</td><td>8+</td><td>Swiggy &middot; Warner Bros. Discovery &middot; Fintech</td></tr>
               <tr><td>Distributed Systems</td><td>7+</td><td>Platform-scale services</td></tr>
               <tr><td>OpenTelemetry</td><td>3+</td><td>Distributed tracing</td></tr>
-              <tr><td>GDPR / CCPA</td><td>6+</td><td>global media platform compliance systems</td></tr>
+              <tr><td>GDPR / CCPA</td><td>6+</td><td>Warner Bros. Discovery compliance systems</td></tr>
               <tr><td>OneTrust</td><td>3+</td><td>User data access &amp; deletion</td></tr>
             </tbody>
           </table>
@@ -1029,6 +902,24 @@
             <span class="cert-period">(2021) &mdash; Udemy</span>
           </li>
         </ul>
+        <details class="skill-years fade-in-el" style="margin-top:1.5rem">
+          <summary>Additional courses &amp; licences</summary>
+          <table>
+            <thead><tr><th>Course</th><th>Issued</th><th>Provider</th></tr></thead>
+            <tbody>
+              <tr><td>Java Memory Management</td><td>Dec 2019</td><td>LinkedIn</td></tr>
+              <tr><td>Kafka Essential Training</td><td>Dec 2019</td><td>LinkedIn</td></tr>
+              <tr><td>AWS for Developers: Data-Driven Serverless Apps with Kinesis</td><td>Oct 2019</td><td>LinkedIn</td></tr>
+              <tr><td>Advanced Node.js: Scaling Applications</td><td>Sep 2019</td><td>LinkedIn</td></tr>
+              <tr><td>Programming Foundations: Design Patterns</td><td>Jun 2019</td><td>LinkedIn</td></tr>
+              <tr><td>Node.js: Security</td><td>Apr 2019</td><td>LinkedIn</td></tr>
+              <tr><td>The Complete Developer&apos;s Guide (Golang)</td><td>Feb 2019</td><td>Udemy</td></tr>
+              <tr><td>Node JS: Advanced Concepts</td><td>Oct 2018</td><td>Udemy</td></tr>
+              <tr><td>Learn Blockchain by Building Your Own in JavaScript</td><td>Aug 2018</td><td>Udemy</td></tr>
+              <tr><td>Node.js: The Complete Guide to Build RESTful APIs</td><td>Jun 2018</td><td>Udemy</td></tr>
+            </tbody>
+          </table>
+        </details>
       </div>
     </section>
 
@@ -1047,6 +938,18 @@
             <div class="edu-school">Gauhati University, Assam</div>
             <div class="edu-period">Aug 2009 &ndash; Aug 2012</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 11. VOLUNTEER ── -->
+    <section id="volunteer" aria-labelledby="vol-h2">
+      <div class="container">
+        <h2 id="vol-h2" class="fade-in-el">Volunteer</h2>
+        <div class="vol-list">
+          <div class="fade-in-el"><div class="vol-org">WWF-India</div><div class="vol-role">Volunteer &mdash; Environment</div><div class="vol-meta">Jun 2018 &mdash; Present</div></div>
+          <div class="fade-in-el"><div class="vol-org">UNICEF</div><div class="vol-role">Volunteer &mdash; Health</div><div class="vol-meta">Jan 2021 &mdash; Jan 2024</div></div>
+          <div class="fade-in-el"><div class="vol-org">Red Cross Blood Services</div><div class="vol-role">Volunteer &mdash; Health</div><div class="vol-meta">Feb 2015 &mdash; Mar 2016</div></div>
         </div>
       </div>
     </section>

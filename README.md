@@ -16,7 +16,7 @@ Single-file, dark-mode-default static site built from scratch. No frameworks, no
 
 - Plain HTML5 + inline CSS + vanilla ES2020 JS — one file: `index.html`
 - System font stack only — no remote fonts
-- One inline SVG for architecture deep-dive (Privacy/PII Orchestrator) + two prose walkthroughs — no Mermaid, no D3
+- Two inline SVGs (Privacy/PII Orchestrator · Full Budget App) + one prose walkthrough (Async Moderation Platform)
 - `IntersectionObserver` for scroll-triggered fade-ins
 - `prefers-color-scheme` for automatic dark / light theming
 - `prefers-reduced-motion` respected
@@ -31,14 +31,21 @@ Single-file, dark-mode-default static site built from scratch. No frameworks, no
 | 1 | Hero | Name, tagline, positioning, CTA buttons |
 | 2 | By the numbers | 4 hard-metric stat tiles |
 | 3 | Open to | Availability / relocation callout |
-| 4 | Selected work | Global media platform · Swiggy Dineout · PT Tujuh Asia · earlier roles · Full Budget App (open source) |
-| 5 | Architecture deep-dives | Privacy/PII Orchestrator (SVG) · Async Moderation Platform (prose) · Full Budget App open-source (SVG) |
-| 6 | Experience | Vertical timeline of all 7 roles |
-| 7 | Skills | Chip groups across 9 categories + years-of-evidence table |
-| 8 | Certifications | AWS, Apollo GraphQL, Udemy + 10 LinkedIn courses |
+| 4 | Selected work | Warner Bros. Discovery · Swiggy Dineout · PT Tujuh Asia · Full Budget App (open source) |
+| 5 | Architecture deep-dives | Privacy/PII Orchestrator (SVG + caption) · Async Moderation Platform (prose) · Full Budget App (SVG + caption) |
+| 6 | Experience | Vertical timeline — 7 roles from 2015 to present |
+| 7 | Skills | Chip groups across 9 categories + years-of-evidence collapsible table |
+| 8 | Certifications | AWS Developer Associate · Apollo GraphQL · Udemy + 10 additional courses (collapsible) |
 | 9 | Education | MCA (Tezpur University) · BCA (Gauhati University) |
-| 10 | Languages | Bengali · English · Hindi · Assamese |
-| 11 | Volunteer | WWF-India · UNICEF · Red Cross |
+| 10 | Volunteer | WWF-India · UNICEF · Red Cross Blood Services |
+
+---
+
+## Availability
+
+- Remote-first globally
+- Hybrid in India
+- Open to relocation
 
 ---
 
@@ -50,7 +57,7 @@ Single-file, dark-mode-default static site built from scratch. No frameworks, no
 - Semantic HTML5 landmarks: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
 - Single `<h1>`, no heading-level skips
 - Skip-to-content link, `aria-labelledby` on every section
-- Accessible SVG: `role="img"`, `<title>`, `<desc>`
+- Accessible SVGs: `role="img"`, `<title>`, `<desc>`
 - `:focus-visible` ring on all interactive elements
 - Color contrast ≥ 4.5 : 1
 
@@ -66,7 +73,7 @@ Single-file, dark-mode-default static site built from scratch. No frameworks, no
 
 ```
 debrajpaul.github.io/
-├── index.html      # entire site — HTML + CSS + JS (3 inline SVG diagrams)
+├── index.html      # entire site — HTML + CSS + JS (2 inline SVG diagrams)
 ├── .nojekyll       # disables Jekyll so GitHub Pages serves the file raw
 ├── .gitignore      # ignores .claude/, .vscode/, .DS_Store, node_modules, .env
 ├── LICENSE
@@ -78,6 +85,6 @@ debrajpaul.github.io/
 ## Contact
 
 **Debraj Paul**
-- Email: pauldebraj7@gmail.com
+- Email: debraj@debrajpaul.com
 - GitHub: [github.com/debrajpaul](https://github.com/debrajpaul)
 - LinkedIn: [linkedin.com/in/debraj-paul](https://www.linkedin.com/in/debraj-paul)
