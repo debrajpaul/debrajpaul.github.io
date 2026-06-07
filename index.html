@@ -416,11 +416,11 @@
             </header>
             <p class="card-context">Modular, multi-tenant SaaS budgeting platform. Ingests bank statements, enriches transactions via rule-based + AI categorisation, and serves a tenant-aware GraphQL API. Built as a pnpm monorepo on AWS serverless.</p>
             <ul class="card-outcomes">
-              <li><strong>3 Lambda services</strong> + <strong>5 DynamoDB tables</strong> fully provisioned via AWS CDK; on-demand pricing throughout.</li>
+              <li><strong>3 Lambda services</strong> + <strong>8 DynamoDB tables</strong> fully provisioned via AWS CDK; on-demand pricing throughout.</li>
               <li>Fully event-driven ingestion: <strong>S3 &rarr; SQS &rarr; txn-loaders Lambda &rarr; DynamoDB Stream &rarr; tag-loaders Lambda</strong> &mdash; zero polling.</li>
               <li>Multi-tenant isolation via <code>tenantId</code> partition key across all tables; JWT auth via SSM Parameter Store.</li>
               <li>Hybrid categorisation: deterministic <strong>NLP rule engine</strong> first; <strong>Amazon Bedrock (Mistral)</strong> fallback for low-confidence matches &mdash; cost-optimised.</li>
-              <li>GraphQL API with <strong>Apollo Server 5</strong> &mdash; 11 queries, 9 mutations; financial reviews, forecasts, budgets, savings goals.</li>
+              <li>GraphQL API with <strong>Apollo Server 5</strong> &mdash; 7 queries, 18+ mutations; auth (incl. refresh-token rotation), two-step uploads, financial reviews, forecasts, budgets, savings goals, sinking funds.</li>
               <li>Observability: <strong>AWS X-Ray</strong> (10% sampling), CloudWatch alarms (errors, duration, throttle), Winston structured logging, Prometheus <code>/metrics</code> endpoint.</li>
             </ul>
             <p class="card-note">Architecture diagram below &darr;</p>
@@ -607,7 +607,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="100%" height="auto"
                  role="img" aria-labelledby="fba-title fba-desc">
               <title id="fba-title">Full Budget App Architecture</title>
-              <desc id="fba-desc">Client sends GraphQL requests through API Gateway to the GraphQL Lambda (Apollo Server, primary actor). The lambda reads and writes five DynamoDB tables: Users, Transactions (with stream), Budgets, Recurring Transactions, and Categories. For statement uploads the lambda writes to an S3 bucket; an S3 PUT event triggers an SQS message; SQS triggers the txn-loaders Lambda which parses bank statements (HDFC, SBI, Axis) and writes normalised transactions to DynamoDB. The DynamoDB stream on the Transactions table triggers the tag-loaders Lambda which applies a deterministic NLP rule engine first, then falls back to Amazon Bedrock (Mistral) for low-confidence matches, and writes the result to the Categories table. AWS X-Ray, CloudWatch, and SSM Parameter Store provide observability and configuration.</desc>
+              <desc id="fba-desc">Client sends GraphQL requests through API Gateway to the GraphQL Lambda (Apollo Server, primary actor). The lambda reads and writes eight DynamoDB tables: Users, Transactions (with stream), Budgets, Recurring Transactions, Categories, Refresh Tokens, Savings Goals, and Sinking Funds. For statement uploads the lambda writes to an S3 bucket; an S3 PUT event triggers an SQS message; SQS triggers the txn-loaders Lambda which parses bank statements (HDFC, SBI, Axis) and writes normalised transactions to DynamoDB. The DynamoDB stream on the Transactions table triggers the tag-loaders Lambda which applies a deterministic NLP rule engine first, then falls back to Amazon Bedrock (Mistral) for low-confidence matches, and writes the result to the Categories table. AWS X-Ray, CloudWatch, and SSM Parameter Store provide observability and configuration.</desc>
               <defs>
                 <marker id="fa" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#9b9ba3"/></marker>
                 <marker id="fa-p" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c5cff"/></marker>
@@ -631,11 +631,11 @@
               <rect x="200" y="60" width="290" height="64" rx="3" fill="none" stroke="#7c5cff" stroke-width="1.5"/>
               <text x="345" y="84"  text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7c5cff" font-weight="bold">GraphQL Lambda</text>
               <text x="345" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#9b9ba3">Apollo Server 5 &middot; JWT &middot; X-Ray tracing</text>
-              <text x="345" y="115" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a">11 queries &middot; 9 mutations &middot; multi-tenant</text>
+              <text x="345" y="115" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a">7 queries &middot; 18+ mutations &middot; multi-tenant</text>
 
               <!-- DynamoDB group -->
-              <rect x="200" y="158" width="285" height="210" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="5,3"/>
-              <text x="290" y="174" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3" letter-spacing="1">DYNAMODB (on-demand &middot; tenantId PK)</text>
+              <rect x="200" y="158" width="285" height="226" rx="3" fill="none" stroke="#1f1f24" stroke-width="1" stroke-dasharray="5,3"/>
+              <text x="290" y="174" font-family="ui-monospace,monospace" font-size="8" fill="#9b9ba3" letter-spacing="1">DYNAMODB (8 tables &middot; on-demand &middot; tenantId PK)</text>
               <rect x="208" y="180" width="268" height="28" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
               <text x="342" y="198" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Users</text>
               <rect x="208" y="216" width="268" height="28" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
@@ -648,6 +648,7 @@
               <text x="342" y="306" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Recurring Transactions</text>
               <rect x="208" y="330" width="268" height="28" rx="3" fill="none" stroke="#23d18b" stroke-width="1"/>
               <text x="342" y="348" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#ededf0">Categories (output of tag-loaders)</text>
+              <text x="342" y="374" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6b6b7a">+ RefreshTokens &middot; SavingsGoals &middot; SinkingFunds</text>
 
               <!-- S3 Bucket -->
               <rect x="550" y="60" width="160" height="36" rx="3" fill="none" stroke="#1f1f24" stroke-width="1"/>
@@ -719,7 +720,7 @@
           </div>
 
           <div class="arch-caption">
-            <p><strong>What it is.</strong> A multi-tenant serverless budgeting platform built as a pnpm monorepo on AWS. Users upload bank statements (HDFC, SBI, Axis &mdash; PDF or CSV) via a GraphQL mutation; the statement lands in S3, an S3 event queues a message in SQS, and the txn-loaders Lambda parses and normalises the transactions into DynamoDB. A DynamoDB stream on the Transactions table immediately triggers the tag-loaders Lambda, which applies a deterministic NLP rule engine for known merchants and categories, falling back to Amazon Bedrock (Mistral) only for low-confidence matches. All five DynamoDB tables use <code>tenantId</code> as the partition key, giving hard data-boundary isolation between users.</p>
+            <p><strong>What it is.</strong> A multi-tenant serverless budgeting platform built as a pnpm monorepo on AWS. Users upload bank statements (HDFC, SBI, Axis &mdash; PDF or CSV) via a GraphQL mutation; the statement lands in S3, an S3 event queues a message in SQS, and the txn-loaders Lambda parses and normalises the transactions into DynamoDB. A DynamoDB stream on the Transactions table immediately triggers the tag-loaders Lambda, which applies a deterministic NLP rule engine for known merchants and categories, falling back to Amazon Bedrock (Mistral) only for low-confidence matches. All 8 DynamoDB tables use <code>tenantId</code> as the partition key, giving hard data-boundary isolation between users.</p>
             <p><strong>Why this shape.</strong> S3 &rarr; SQS decouples ingestion from parsing &mdash; spiky upload volumes don&rsquo;t block the GraphQL API. DynamoDB Streams replace polling entirely: as soon as a transaction is written, the categorisation worker fires. The hybrid NLP+AI strategy keeps Bedrock calls (and their cost) to a minimum; most common merchants are classified by rules in under a millisecond. AWS CDK provisions all resources &mdash; tables, queues, buckets, alarms, X-Ray groups &mdash; as reproducible stacks with explicit dependency ordering.</p>
           </div>
         </article>
