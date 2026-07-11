@@ -1,0 +1,74 @@
+name: Checks
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  astro-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: astro check
+        run: pnpm astro check
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm astro build
+
+      - name: Start preview server
+        run: |
+          pnpm astro preview --port 4321 &
+          echo $! > preview.pid
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:4321 >/dev/null && exit 0
+            sleep 1
+          done
+          echo "preview server did not come up in time" >&2
+          exit 1
+
+      # Same budget as the manual Prompt 6 audit: Performance / Accessibility /
+      # Best Practices / SEO all >= 95, checked on the homepage plus one
+      # system-design page (auto-discovered from dist/, so new system-design
+      # entries get this same gate without editing this workflow).
+      - name: Lighthouse budget (>= 95)
+        run: pnpm lighthouse:budget
+        env:
+          LH_BASE_URL: http://localhost:4321
+          LH_MIN_SCORE: 95
+
+      - name: Stop preview server
+        if: always()
+        run: kill "$(cat preview.pid)" 2>/dev/null || true

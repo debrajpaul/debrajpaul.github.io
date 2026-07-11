@@ -1,0 +1,83 @@
+---
+---
+
+<section id="work" aria-labelledby="work-h2">
+  <div class="container">
+    <h2 id="work-h2" class="fade-in-el">Selected work</h2>
+    <div class="work-cards">
+
+      <!-- Card 1: Global media platform -->
+      <article class="work-card fade-in-el" aria-labelledby="card-wbd">
+        <header class="card-header">
+          <span class="card-company" id="card-wbd">Warner Bros. Discovery <span style="color:var(--muted);font-weight:400">via Robosoft</span></span>
+          <span class="card-role">Technical Lead II</span>
+          <span class="card-dates">Aug 2020 &mdash; Present &middot; Remote</span>
+        </header>
+        <p class="card-context">Global, high-traffic media platform serving multiple brands with personalization, CMS, BFF services, and compliance-critical workflows.</p>
+        <ul class="card-outcomes">
+          <li>Built Node.js/TypeScript microservices for an in-house content platform powering Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend.</li>
+          <li>Architected AWS-native infrastructure (Lambda, ECS, SQS, SNS) with Infrastructure-as-Code; designed Lambda-vs-ECS deployment trade-offs per service.</li>
+          <li>Delivered a <strong>GraphQL Backend-for-Frontend</strong> for Food Network with auth, observability, and proactive monitoring.</li>
+          <li>Integrated <strong>OneTrust</strong> to enable GDPR/CCPA user-data access, deletion, and auditability across <strong>6+ services</strong>.</li>
+          <li>Standardized REST and GraphQL API conventions adopted across teams; cut cross-team onboarding friction.</li>
+          <li>Introduced distributed tracing (OpenTelemetry) and Redis caching, reducing DB pressure and improving incident MTTR.</li>
+        </ul>
+        <p class="card-note">Two of the systems I built here are walked through with architecture diagrams in the section below.</p>
+      </article>
+
+      <!-- Card 2: Swiggy Dineout -->
+      <article class="work-card fade-in-el" aria-labelledby="card-swiggy">
+        <header class="card-header">
+          <span class="card-company" id="card-swiggy">Swiggy Dineout (formerly Dineout, Times Internet)</span>
+          <span class="card-role">Senior Software Engineer</span>
+          <span class="card-dates">Dec 2019 &mdash; Jun 2021 &middot; Bengaluru</span>
+        </header>
+        <p class="card-context">High-volume, event-driven integrations platform connecting POS systems, marketing, and user segmentation pipelines.</p>
+        <ul class="card-outcomes">
+          <li>Designed and built an event-driven integration platform connecting <strong>10+ third-party POS systems</strong> using Kafka and Redis.</li>
+          <li>Reduced transaction latency by <strong>~50%</strong> through async pipelines, cache-aside, and partition-aware consumer scaling.</li>
+          <li>Built customer segmentation on MongoDB + ElasticSearch, driving <strong>~25%</strong> uplift in user conversions and <strong>~15%</strong> bounce-rate reduction.</li>
+          <li>Delivered three enterprise-grade microservices contributing to <strong>~25% YoY revenue growth</strong>.</li>
+          <li>Owned Kafka topic schemas and backward-compatible event evolution strategy.</li>
+        </ul>
+      </article>
+
+      <!-- Card 3: PT Tujuh Asia -->
+      <article class="work-card fade-in-el" aria-labelledby="card-pt">
+        <header class="card-header">
+          <span class="card-company" id="card-pt">PT Teknologi Tujuh Asia</span>
+          <span class="card-role">Senior Software Engineer</span>
+          <span class="card-dates">Nov 2018 &mdash; Dec 2019 &middot; Jakarta</span>
+        </header>
+        <p class="card-context">Fintech P2P lending platform with automation, risk assessment, and compliance requirements.</p>
+        <ul class="card-outcomes">
+          <li>Built a P2P lending platform on Express.js + MongoDB + AWS; <strong>automated ~95% of credit workflows</strong>.</li>
+          <li>Improved loan approval accuracy by <strong>~25%</strong> via system-driven decision pipelines; cut end-to-end processing time by <strong>~50%</strong>.</li>
+          <li>Implemented <strong>OCR + facial recognition</strong> for KYC and an <strong>NLP-based scoring engine</strong> for risk analysis.</li>
+          <li>Reduced communication errors by <strong>~90%</strong>, lifting customer satisfaction by <strong>~20%</strong>.</li>
+        </ul>
+      </article>
+
+      <!-- Card 5: Open Source -->
+      <article class="card-opensource fade-in-el" aria-labelledby="card-oss">
+        <header class="card-header">
+          <span class="card-company" id="card-oss">Full Budget App</span>
+          <span class="card-role">Open Source &middot; Personal project</span>
+          <span class="card-dates">Aug 2025 &middot; <a href="https://github.com/debrajpaul/full-budget-app" rel="noopener noreferrer" target="_blank" style="font-size:0.75rem">github &rarr;</a></span>
+        </header>
+        <p class="card-context">Modular, multi-tenant SaaS budgeting platform. Ingests bank statements, enriches transactions via rule-based + AI categorisation, and serves a tenant-aware GraphQL API. Built as a pnpm monorepo on AWS serverless.</p>
+        <ul class="card-outcomes">
+          <li><strong>3 Lambda services</strong> + <strong>8 DynamoDB tables</strong> fully provisioned via AWS CDK; on-demand pricing throughout.</li>
+          <li>Fully event-driven ingestion: <strong>S3 &rarr; SQS &rarr; txn-loaders Lambda &rarr; DynamoDB Stream &rarr; tag-loaders Lambda</strong> &mdash; zero polling.</li>
+          <li>Multi-tenant isolation via <code>tenantId</code> partition key across all tables; JWT auth via SSM Parameter Store.</li>
+          <li>Hybrid categorisation: deterministic <strong>NLP rule engine</strong> first; <strong>Amazon Bedrock (Mistral)</strong> fallback for low-confidence matches &mdash; cost-optimised.</li>
+          <li>GraphQL API with <strong>Apollo Server 5</strong> &mdash; 7 queries, 18+ mutations; auth (incl. refresh-token rotation), two-step uploads, financial reviews, forecasts, budgets, savings goals, sinking funds.</li>
+          <li>Observability: <strong>AWS X-Ray</strong> (10% sampling), CloudWatch alarms (errors, duration, throttle), Winston structured logging, Prometheus <code>/metrics</code> endpoint.</li>
+        </ul>
+        <p class="card-note">Architecture diagram below &darr;</p>
+      </article>
+
+
+    </div>
+  </div>
+</section>

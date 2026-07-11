@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  stack: string[];
+  slug: string;
+}
+
+const { title, summary, stack, slug } = Astro.props;
+---
+
+<a class="sd-card fade-in-el" href={`/system-design/${slug}/`}>
+  <h3 class="sd-card-title">{title}</h3>
+  <p class="sd-card-summary">{summary}</p>
+  <div class="chips" role="list">
+    {stack.map((item) => <span class="chip" role="listitem">{item}</span>)}
+  </div>
+  <span class="sd-card-link" aria-hidden="true">Read the deep-dive &rarr;</span>
+</a>

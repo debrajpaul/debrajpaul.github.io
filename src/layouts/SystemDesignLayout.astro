@@ -1,0 +1,92 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import ArchitectureDiagram from '../components/ArchitectureDiagram.astro';
+
+interface Props {
+  entry: CollectionEntry<'systemDesign'>;
+}
+
+const { entry } = Astro.props;
+const { title, summary, stack, patterns, diagramType, diagramFile } = entry.data;
+const slug = entry.id;
+
+const diagramModules = import.meta.glob('../assets/diagrams/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+
+let diagramSvg: string | undefined;
+if (diagramType === 'svg' && diagramFile) {
+  const match = Object.entries(diagramModules).find(([path]) => path.endsWith(`/${diagramFile}`));
+  diagramSvg = match?.[1];
+}
+
+const pageUrl = `https://debrajpaul.com/system-design/${slug}/`;
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description: summary,
+  url: pageUrl,
+  mainEntityOfPage: pageUrl,
+  author: {
+    '@type': 'Person',
+    name: 'Debraj Paul',
+    url: 'https://debrajpaul.com',
+  },
+  keywords: [...stack, ...patterns].join(', '),
+};
+---
+
+<BaseLayout
+  title={`${title} — Debraj Paul`}
+  description={summary}
+  ogTitle={title}
+  ogType="article"
+  url={pageUrl}
+  jsonLd={techArticleJsonLd}
+>
+  <section class="section-sd-detail" aria-labelledby="sd-detail-h">
+    <div class="container">
+      <nav class="sd-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">&larr; Back to home</a>
+      </nav>
+
+      <article class="arch-deepdive" aria-labelledby="sd-detail-h">
+        <h1 id="sd-detail-h">{title}</h1>
+        <p class="arch-subtitle">{summary}</p>
+
+        {diagramType === 'svg' && diagramSvg && <ArchitectureDiagram svg={diagramSvg} />}
+
+        <div class="arch-caption">
+          <slot />
+        </div>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-sd-detail {
+    padding-block: 3rem 5rem;
+  }
+  .sd-breadcrumb {
+    margin-bottom: 2rem;
+  }
+  .sd-breadcrumb a {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+  .sd-breadcrumb a:hover {
+    color: var(--text);
+  }
+  .section-sd-detail h1 {
+    font-size: clamp(1.6rem, 4vw, 2.25rem);
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+</style>

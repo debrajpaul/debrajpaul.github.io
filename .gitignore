@@ -9,7 +9,7 @@
 .claude/
 
 # Editor
-.vscode/settings.json
+.vscode
 *.swp
 *.swo
 *.orig
@@ -18,6 +18,12 @@
 node_modules/
 npm-debug.log*
 yarn-error.log
+yarn-debug.log*
+pnpm-debug.log*
+
+# Astro
+dist/
+.astro/
 
 # Environment / secrets
 .env

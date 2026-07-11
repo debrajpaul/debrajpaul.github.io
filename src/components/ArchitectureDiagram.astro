@@ -1,0 +1,9 @@
+---
+interface Props {
+  svg: string;
+}
+
+const { svg } = Astro.props;
+---
+
+<div class="arch-diagram-wrap" set:html={svg} />
