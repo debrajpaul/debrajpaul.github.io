@@ -25,8 +25,12 @@ jobs:
 
       - name: Install, build, and upload the Astro site
         uses: withastro/action@v3
+        with:
+          node-version: 22
         # Auto-detects pnpm from pnpm-lock.yaml, runs `astro build`, and uploads
         # dist/ as the Pages artifact — no separate upload-pages-artifact step needed.
+        # node-version pinned to match package.json's engines.node (>=22.12.0) and
+        # pnpm 11's own Node >=22.13 requirement — the action's own default is 20.
 
   deploy:
     needs: build
