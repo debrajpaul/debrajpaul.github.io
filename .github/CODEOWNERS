@@ -1,0 +1,6 @@
+# Default owner for the whole repo
+* @debrajpaul
+
+# Always require Debraj specifically on CI/deploy and content-schema changes
+/.github/ @debrajpaul
+/src/content.config.ts @debrajpaul
