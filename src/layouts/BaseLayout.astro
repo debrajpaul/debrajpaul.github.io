@@ -1,0 +1,340 @@
+---
+const DEFAULT_PERSON_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Debraj Paul',
+  jobTitle: 'Technical Lead II — Backend / Platform Engineer',
+  url: 'https://debrajpaul.com',
+  email: 'debraj@debrajpaul.com',
+  sameAs: ['https://github.com/debrajpaul', 'https://www.linkedin.com/in/debraj-paul'],
+  knowsAbout: [
+    'Node.js', 'TypeScript', 'JavaScript', 'AWS', 'Microservices',
+    'Event-Driven Systems', 'GraphQL', 'Distributed Systems', 'Kafka',
+    'DynamoDB', 'Lambda', 'ECS', 'Docker', 'OpenTelemetry', 'GDPR', 'CCPA',
+    'Redis', 'OpenSearch', 'AWS Glue', 'OneTrust', 'Amazon Bedrock',
+  ],
+};
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogTitle?: string;
+  ogType?: 'website' | 'article';
+  url?: string;
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  title = 'Debraj Paul — Technical Lead II, Backend / Platform (Node.js · TypeScript · AWS)',
+  description = 'Senior Platform / Backend Engineer with 11+ years building distributed, event-driven systems on AWS. Open to remote roles globally.',
+  ogTitle = 'Debraj Paul — Technical Lead II, Backend / Platform',
+  ogType = 'website',
+  url = 'https://debrajpaul.com/',
+  jsonLd = DEFAULT_PERSON_JSONLD,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={url} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={url} />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:site_name" content="Debraj Paul" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={ogTitle} />
+  <meta name="twitter:description" content={description} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd, null, 2)} />
+  <style is:global>
+    /* ============================================================
+       CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --bg:       #0a0a0b;
+      --surface:  #111114;
+      --border:   #1f1f24;
+      --text:     #ededf0;
+      --muted:    #9b9ba3;
+      --accent:   #8061ff;
+      --accent2:  #23d18b;
+      --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      --max-w: 1100px;
+      --r: 4px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg:      #ffffff;
+        --surface: #f5f5f7;
+        --border:  #e2e2e5;
+        --text:    #0a0a0b;
+        --muted:   #6b6b73;
+        --accent:  #6b4fdd;
+        --accent2: #137f54;
+      }
+    }
+
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3, h4 { line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 2rem; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .container { width: min(var(--max-w), 100% - 2rem); margin-inline: auto; }
+    section { padding-block: 5rem; }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* ============================================================
+       SKIP LINK
+    ============================================================ */
+    .skip-link { position: absolute; top: -100%; left: 1rem; background: var(--accent); color: #fff; padding: 0.5rem 1rem; border-radius: var(--r); font-size: 0.875rem; z-index: 9999; }
+    .skip-link:focus { top: 1rem; }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    .site-nav { position: sticky; top: 0; z-index: 100; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; width: min(var(--max-w), 100% - 2rem); margin-inline: auto; }
+    .nav-logo { font-family: var(--font-mono); font-size: 0.875rem; font-weight: 600; color: var(--text); letter-spacing: 0.05em; }
+    .nav-logo:hover { text-decoration: none; color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; }
+    .nav-links a { font-size: 0.8125rem; color: var(--muted); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-cta { color: var(--accent) !important; border: 1px solid var(--accent); padding: 0.25rem 0.75rem; border-radius: var(--r); transition: background 0.15s, color 0.15s !important; }
+    .nav-cta:hover { background: var(--accent); color: #fff !important; }
+    @media (max-width: 600px) { .nav-links { gap: 1rem; } .nav-links a:not(.nav-cta) { display: none; } }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .section-hero { padding-block: 7rem 5rem; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 300px; background: radial-gradient(ellipse at center, rgba(124,92,255,0.1) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .section-hero .container { position: relative; z-index: 1; }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 1rem; }
+    .section-hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 600; color: var(--text); margin-bottom: 0.75rem; }
+    .hero-tagline { font-size: clamp(1rem, 2.5vw, 1.375rem); color: var(--muted); font-weight: 400; margin-bottom: 1.5rem; line-height: 1.4; }
+    .hero-pos { max-width: 640px; color: var(--muted); font-size: 1rem; margin-bottom: 2.5rem; line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn-primary { display: inline-block; background: var(--accent); color: #fff; padding: 0.6rem 1.25rem; border-radius: var(--r); font-size: 0.875rem; font-weight: 500; transition: opacity 0.15s; }
+    .btn-primary:hover { opacity: 0.85; text-decoration: none; }
+    .btn-secondary { display: inline-block; border: 1px solid var(--border); color: var(--text); padding: 0.6rem 1.25rem; border-radius: var(--r); font-size: 0.875rem; font-weight: 500; transition: border-color 0.15s; }
+    .btn-secondary:hover { border-color: var(--muted); text-decoration: none; }
+
+    /* ============================================================
+       METRICS
+    ============================================================ */
+    .section-metrics { padding-block: 3.5rem; }
+    .metrics-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; margin-bottom: 1.5rem; }
+    .metric { padding: 1.75rem 1.5rem; border-right: 1px solid var(--border); }
+    .metric:last-child { border-right: none; }
+    @media (max-width: 700px) { .metric { border-right: none; border-bottom: 1px solid var(--border); } .metric:last-child { border-bottom: none; } }
+    .metric-number { display: block; font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 600; color: var(--accent); font-family: var(--font-mono); line-height: 1; margin-bottom: 0.4rem; }
+    .metric-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+    .metric-sub { display: block; font-size: 0.75rem; color: var(--muted); font-family: var(--font-mono); }
+    .c-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .c-chip { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); border: 1px solid var(--border); padding: 0.2rem 0.6rem; border-radius: 2px; letter-spacing: 0.04em; }
+
+    /* ============================================================
+       OPEN TO
+    ============================================================ */
+    .section-open-to { padding-block: 2.5rem; }
+    .callout-open { border-left: 2px solid var(--accent2); padding: 1rem 1.25rem; background: color-mix(in srgb, var(--accent2) 5%, transparent); border-radius: 0 var(--r) var(--r) 0; font-size: 0.9375rem; color: var(--text); line-height: 1.8; }
+    .callout-open strong { color: var(--accent2); }
+
+    /* ============================================================
+       WORK CARDS
+    ============================================================ */
+    .work-cards { display: flex; flex-direction: column; gap: 2px; }
+    .work-card { border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; background: var(--surface); }
+    .card-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1rem; margin-bottom: 0.75rem; }
+    .card-company { font-size: 1rem; font-weight: 600; color: var(--text); }
+    .card-role { font-size: 0.875rem; color: var(--muted); }
+    .card-dates { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-left: auto; }
+    .card-context { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.6; }
+    .card-note { font-size: 0.875rem; color: var(--accent2); margin-top: 0.75rem; font-style: italic; }
+    .card-outcomes { display: flex; flex-direction: column; gap: 0.5rem; }
+    .card-outcomes li { font-size: 0.9rem; color: var(--text); padding-left: 1rem; position: relative; }
+    .card-outcomes li::before { content: "\2013"; position: absolute; left: 0; color: var(--muted); }
+    .card-outcomes li strong { color: var(--accent2); font-weight: 600; }
+    .card-earlier { border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem 2rem; background: var(--surface); }
+    .card-earlier h3 { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .earlier-roles { display: flex; flex-direction: column; gap: 0.75rem; }
+    .earlier-role { font-size: 0.875rem; color: var(--text); line-height: 1.6; }
+    .earlier-role .er-meta { color: var(--muted); }
+    .card-opensource { border: 1px solid var(--accent2); border-radius: var(--r); padding: 2rem; background: var(--surface); }
+    .card-opensource .card-company { color: var(--accent2); }
+    .vol-list { display: flex; flex-direction: column; gap: 1rem; }
+    .vol-org { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
+    .vol-role { font-size: 0.875rem; color: var(--muted); }
+    .vol-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+
+    /* ============================================================
+       ARCHITECTURE DEEP-DIVES
+    ============================================================ */
+    .arch-intro { color: var(--muted); font-size: 0.9375rem; max-width: 720px; margin-bottom: 3rem; line-height: 1.65; }
+    .arch-deepdive { margin-bottom: 4rem; }
+    .arch-deepdive:last-child { margin-bottom: 0; }
+    .arch-deepdive h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--text); margin-bottom: 0.4rem; }
+    .arch-subtitle { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 1.5rem; }
+    .arch-diagram-wrap { background: #0d0d10; border: 1px solid #1f1f24; border-radius: 6px; padding: 1rem; margin-bottom: 1.5rem; overflow-x: auto; max-width: 960px; }
+    .arch-caption { display: flex; flex-direction: column; gap: 0.875rem; max-width: 800px; }
+    .arch-caption p { font-size: 0.9375rem; color: var(--muted); line-height: 1.7; }
+    .arch-caption p strong { color: var(--text); }
+
+    /* ============================================================
+       SYSTEM DESIGN CARDS
+    ============================================================ */
+    .sd-grid { display: flex; flex-direction: column; gap: 2px; }
+    .sd-card { display: block; border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; background: var(--surface); transition: border-color 0.15s; }
+    .sd-card:hover { border-color: var(--accent); text-decoration: none; }
+    .sd-card-title { font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; }
+    .sd-card-summary { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; max-width: 640px; }
+    .sd-card .chips { margin-bottom: 1rem; }
+    .sd-card-link { display: inline-block; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--accent); }
+
+    /* ============================================================
+       TIMELINE
+    ============================================================ */
+    .timeline { position: relative; padding-left: 1.75rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 0; width: 1px; background: var(--border); }
+    .timeline li { position: relative; padding-bottom: 2rem; }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline-dot { position: absolute; left: -1.875rem; top: 6px; width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--accent); background: var(--bg); }
+    .timeline-company { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
+    .timeline-role { font-size: 0.875rem; color: var(--muted); }
+    .timeline-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+
+    /* ============================================================
+       SKILLS
+    ============================================================ */
+    .skills-groups { display: flex; flex-direction: column; gap: 2rem; }
+    .skill-group h3 { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .chip { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text); border: 1px solid var(--border); padding: 0.2rem 0.55rem; border-radius: 2px; background: transparent; }
+    .skill-years { margin-top: 2.5rem; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .skill-years summary { padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); cursor: pointer; user-select: none; }
+    .skill-years summary:hover { color: var(--text); }
+    .skill-years table { width: 100%; border-collapse: collapse; }
+    .skill-years th { text-align: left; padding: 0.5rem 1rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--border); }
+    .skill-years td { padding: 0.5rem 1rem; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.8rem; color: var(--text); }
+    .skill-years tr:last-child td { border-bottom: none; }
+    .skill-years td:nth-child(2) { color: var(--accent); white-space: nowrap; }
+    .skill-years td:last-child { color: var(--muted); }
+
+    /* ============================================================
+       CERTS + EDUCATION
+    ============================================================ */
+    .cert-list { display: flex; flex-direction: column; gap: 1rem; }
+    .cert-item { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+    .cert-name { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
+    .cert-period { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+    .cert-link { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); }
+    .edu-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .edu-degree { font-weight: 600; font-size: 0.9375rem; color: var(--text); }
+    .edu-school { font-size: 0.875rem; color: var(--muted); }
+    .edu-period { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer { border-top: 1px solid var(--border); padding-block: 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.8125rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 0.8125rem; color: var(--muted); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ============================================================
+       FADE-IN
+    ============================================================ */
+    .fade-in-el { opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-in-el.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in-el { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ============================================================
+       FOCUS
+    ============================================================ */
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+    /* ============================================================
+       PRINT
+    ============================================================ */
+    @media print {
+      :root { --bg:#fff; --surface:#f9f9f9; --border:#ccc; --text:#0a0a0b; --muted:#555; --accent:#5a3fc0; --accent2:#1a8a5e; }
+      .site-nav { display: none; }
+      body { font-size: 11pt; font-family: Georgia, serif; }
+      code, .font-mono, [style*="monospace"] { font-size: 9pt; }
+      .section-hero { padding-block: 2rem 1rem; }
+      section { padding-block: 1.5rem; page-break-inside: avoid; }
+      .section-timeline { page-break-before: always; }
+      .arch-diagram-wrap svg rect { stroke: #333 !important; }
+      .fade-in-el { opacity: 1; transform: none; }
+      a[href]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #888; }
+      .nav-links a::after, .footer-links a::after, .hero-actions a::after { content: none; }
+      .hero-glow { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header>
+    <nav class="site-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Debraj Paul home">DP</a>
+        <div class="nav-links">
+          <a href="/#work">Work</a>
+          <a href="/#architecture">Arch</a>
+          <a href="/#skills">Skills</a>
+          <a href="/#certs">Certs</a>
+          <a href="/Debraj_Paul_CV.pdf" class="nav-cta" rel="noopener" download>CV</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; Debraj Paul &middot; Built from scratch in plain HTML, CSS, and a little JS.</p>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="/Debraj_Paul_CV.pdf" rel="noopener" download>CV</a>
+        <a href="https://github.com/debrajpaul" rel="noopener noreferrer" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/debraj-paul" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="mailto:debraj@debrajpaul.com">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.fade-in-el').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

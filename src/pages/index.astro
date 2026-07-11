@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import StatsTiles from '../components/StatsTiles.astro';
+import AvailabilityCallout from '../components/AvailabilityCallout.astro';
+import SelectedWork from '../components/SelectedWork.astro';
+import SystemDesignCard from '../components/SystemDesignCard.astro';
+import Timeline from '../components/Timeline.astro';
+import SkillsMatrix from '../components/SkillsMatrix.astro';
+import Certifications from '../components/Certifications.astro';
+import Education from '../components/Education.astro';
+import Volunteer from '../components/Volunteer.astro';
+
+const systemDesignEntries = (await getCollection('systemDesign', ({ data }) => data.status === 'live'))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout>
+  <Hero />
+  <StatsTiles />
+  <AvailabilityCallout />
+  <SelectedWork />
+
+  <!-- ── 5. ARCHITECTURE DEEP-DIVES ── -->
+  <section id="architecture" aria-labelledby="arch-h2">
+    <div class="container">
+      <h2 id="arch-h2" class="fade-in-el">Architecture deep-dives</h2>
+      <p class="arch-intro fade-in-el">Two systems built at Warner Bros. Discovery (Food Network, CNN, Eurosport, and others). Plus one open-source personal project with a full diagram.</p>
+
+      <div class="sd-grid">
+        {systemDesignEntries.map((entry) => (
+          <SystemDesignCard
+            title={entry.data.title}
+            summary={entry.data.summary}
+            stack={entry.data.stack}
+            slug={entry.id}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Timeline />
+  <SkillsMatrix />
+  <Certifications />
+  <Education />
+  <Volunteer />
+</BaseLayout>
