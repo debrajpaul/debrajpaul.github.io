@@ -1,6 +1,6 @@
 # debrajpaul.github.io
 
-Personal portfolio site for **Debraj Paul** — Senior Backend / Platform Engineer (Node.js · TypeScript · AWS).
+Personal portfolio site for **Debraj Paul** — Senior Backend / Platform Engineer (Node.js · TypeScript · AWS)..
 
 Live at: **[debrajpaul.com](https://debrajpaul.com)**
 
