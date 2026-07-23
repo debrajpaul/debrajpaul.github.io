@@ -4,19 +4,35 @@
 <section class="section-hero" id="hero" aria-labelledby="hero-h1">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="container">
-    <p class="eyebrow">Bengaluru, IN &middot; Remote-first globally &middot; Open to relocation</p>
-    <h1 id="hero-h1">Debraj Paul</h1>
-    <p class="hero-tagline">Technical Lead II &mdash; Backend / Platform &middot; Node.js &middot; TypeScript &middot; AWS</p>
-    <p class="hero-pos">
-      11+ years designing, building, and operating distributed backend systems across media, fintech, food-tech, and travel.
-      Deep in AWS-native architectures, event-driven platforms, and Backend-for-Frontend GraphQL.
-      Currently shipping privacy-orchestration and multi-brand moderation at Warner Bros. Discovery supporting Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend.
-    </p>
-    <div class="hero-actions">
-      <a href="/Debraj_Paul_CV.pdf" class="btn-primary" rel="noopener" download>Download CV</a>
-      <a href="https://github.com/debrajpaul" class="btn-secondary" rel="noopener noreferrer" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/debraj-paul" class="btn-secondary" rel="noopener noreferrer" target="_blank">LinkedIn</a>
-      <a href="mailto:debraj@debrajpaul.com" class="btn-secondary">Email</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Bengaluru, IN &middot; Remote-first globally &middot; Open to relocation</p>
+        <h1 id="hero-h1">Debraj Paul</h1>
+        <p class="hero-tagline">Technical Lead II &mdash; Backend / Platform &middot; Node.js &middot; TypeScript &middot; AWS</p>
+        <p class="hero-pos">
+          11+ years designing, building, and operating distributed backend systems across media, fintech, food-tech, and travel.
+          Deep in AWS-native architectures, event-driven platforms, and Backend-for-Frontend GraphQL.
+          Currently shipping privacy-orchestration and multi-brand moderation at Warner Bros. Discovery supporting Food Network, CNN, Eurosport, Magnolia, Golf Digest, and MotorTrend.
+        </p>
+        <div class="hero-actions">
+          <a href="/Debraj_Paul_CV.pdf" class="btn-primary" rel="noopener" download>Download CV</a>
+          <a href="https://github.com/debrajpaul" class="btn-secondary" rel="noopener noreferrer" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/debraj-paul" class="btn-secondary" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+          <a href="mailto:debraj@debrajpaul.com" class="btn-secondary">Email</a>
+        </div>
+      </div>
+      <div class="diagram-card fade-in-el" aria-hidden="true">
+        <div class="flow">
+          <span class="node">OneTrust request</span><span class="arrow">&rarr;</span>
+          <span class="node accent">Orchestrator</span><span class="arrow">&rarr;</span>
+          <span class="node">Registry lookup</span>
+        </div>
+        <div class="flow">
+          <span class="node">Kafka fan-out</span><span class="arrow">&rarr;</span>
+          <span class="node accent">6+ services</span><span class="arrow">&rarr;</span>
+          <span class="node">aggregate: complete</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
