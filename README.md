@@ -22,7 +22,7 @@ Astro-based portfolio site, statically built with zero client-side framework ove
 - System font stack only — no remote fonts
 - `IntersectionObserver` for scroll-triggered fade-ins
 - `prefers-color-scheme` for automatic dark / light theming, `prefers-reduced-motion` respected
-- No analytics, no third-party scripts
+- Cloudflare Web Analytics (no cookies, no consent banner) — inert until `PUBLIC_CF_BEACON_TOKEN` is set, see [Analytics](#analytics)
 
 ---
 
@@ -62,6 +62,38 @@ Drop a new Markdown file into `src/content/system-design/`, matching the schema 
 - Remote-first globally
 - Hybrid in India
 - Open to relocation
+
+The Dubai campaign window (root hero banner + `/dubai`) is driven by a single config
+module, `src/config/availability.ts` — see [Future edits](#future-edits-dubai-campaign)
+below for the exact one-line changes.
+
+---
+
+## /dubai — campaign landing
+
+`src/pages/dubai.astro` is a QR-code landing page for a physical visiting card handed
+out at AWS Summit Dubai (30 Sep 2026). Above-the-fold content (name, role, stack,
+availability panel, CV/LinkedIn/GitHub, contact, one-liner) is hard-constrained to fit a
+375×667 viewport with zero scrolling — verified with a headless-Chrome screenshot at that
+viewport, not just estimated. Below-the-fold, it reuses the same components as root
+(`StatsTiles`, `SelectedWork`, `ArchitectureSection`, `SkillsMatrix`, `Certifications`) —
+nothing is forked or reworded.
+
+Lines 1–4 above the fold (name, role, stack, the two availability-panel lines) are
+printed verbatim on the physical card. Do not reword them without reprinting the card.
+
+`/dubai` has its own title, description, OG tags, and a self-referencing canonical (it is
+**not** canonicalised to `/`). Root's canonical and indexing are unaffected.
+
+### Future edits (Dubai campaign) {#future-edits-dubai-campaign}
+
+All three driven by `src/config/availability.ts`:
+
+| When | Edit |
+|---|---|
+| **A.** UAE number arrives (~25 Sep 2026) | Set `uaePhone: "+971 5X XXX XXXX"` — renders automatically on `/dubai`'s contact line. Leave `null` and it renders nothing (no placeholder). |
+| **B.** Visa dates confirmed | Set `windowLabel` to the real range — updates both `/dubai` and the root hero banner. |
+| **C.** Permit expires (~Dec 2026) | Set `active: false`. This drops the root banner back to "Bengaluru, IN · Remote-first globally · Open to relocation" and hides the availability panel on `/dubai`. A client-side redirect from `/dubai` → `/` is already implemented in `src/pages/dubai.astro` but commented out (GitHub Pages has no server-side 301s) — uncomment it at the same time. |
 
 ---
 

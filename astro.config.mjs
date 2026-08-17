@@ -1,7 +1,29 @@
 // @ts-check
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mermaid from 'astro-mermaid';
+
+// /dubai links to this CV. A 404 on that button is the single worst failure
+// mode for a QR-code landing page — fail the build loudly instead of
+// shipping a dead link.
+function requireDubaiCv() {
+  return {
+    name: 'require-dubai-cv',
+    hooks: {
+      'astro:build:start'() {
+        const path = fileURLToPath(new URL('./public/Debraj_Paul_CV_Dubai.pdf', import.meta.url));
+        if (!existsSync(path)) {
+          throw new Error(
+            `Missing public/Debraj_Paul_CV_Dubai.pdf — /dubai links to this file. ` +
+              `Add the real CV (or a placeholder) before building.`
+          );
+        }
+      },
+    },
+  };
+}
 
 // astro-mermaid's astro:config:setup hook injects the full
 // mermaid+cytoscape+katex client runtime on EVERY page unconditionally —
@@ -18,5 +40,5 @@ import mermaid from 'astro-mermaid';
 export default defineConfig({
   site: 'https://debrajpaul.com',
   output: 'static',
-  integrations: [mermaid(), sitemap()],
+  integrations: [mermaid(), sitemap(), requireDubaiCv()],
 });
