@@ -1,19 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import StatsTiles from '../components/StatsTiles.astro';
 import AvailabilityCallout from '../components/AvailabilityCallout.astro';
 import SelectedWork from '../components/SelectedWork.astro';
-import SystemDesignCard from '../components/SystemDesignCard.astro';
+import ArchitectureSection from '../components/ArchitectureSection.astro';
 import Timeline from '../components/Timeline.astro';
 import SkillsMatrix from '../components/SkillsMatrix.astro';
 import Certifications from '../components/Certifications.astro';
 import Education from '../components/Education.astro';
 import Volunteer from '../components/Volunteer.astro';
-
-const systemDesignEntries = (await getCollection('systemDesign', ({ data }) => data.status === 'live'))
-  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout>
@@ -21,26 +17,7 @@ const systemDesignEntries = (await getCollection('systemDesign', ({ data }) => d
   <StatsTiles />
   <AvailabilityCallout />
   <SelectedWork />
-
-  <!-- ── 5. ARCHITECTURE DEEP-DIVES ── -->
-  <section id="architecture" aria-labelledby="arch-h2">
-    <div class="container">
-      <h2 id="arch-h2" class="fade-in-el">Architecture deep-dives</h2>
-      <p class="arch-intro fade-in-el">Selected architecture patterns from production systems at Warner Bros. Discovery and personal open-source projects — each with a full diagram and a problem → decision → trade-off walkthrough.</p>
-
-      <div class="sd-grid">
-        {systemDesignEntries.map((entry) => (
-          <SystemDesignCard
-            title={entry.data.title}
-            summary={entry.data.summary}
-            stack={entry.data.stack}
-            slug={entry.id}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
+  <ArchitectureSection />
   <Timeline />
   <SkillsMatrix />
   <Certifications />
