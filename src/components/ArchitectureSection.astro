@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import SystemDesignCard from './SystemDesignCard.astro';
+
+const systemDesignEntries = (await getCollection('systemDesign', ({ data }) => data.status === 'live'))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="architecture" aria-labelledby="arch-h2">
+  <div class="container">
+    <h2 id="arch-h2" class="fade-in-el">Architecture deep-dives</h2>
+    <p class="arch-intro fade-in-el">Selected architecture patterns from production systems at Warner Bros. Discovery and personal open-source projects — each with a full diagram and a problem → decision → trade-off walkthrough.</p>
+
+    <div class="sd-grid">
+      {systemDesignEntries.map((entry) => (
+        <SystemDesignCard
+          title={entry.data.title}
+          summary={entry.data.summary}
+          stack={entry.data.stack}
+          slug={entry.id}
+        />
+      ))}
+    </div>
+  </div>
+</section>

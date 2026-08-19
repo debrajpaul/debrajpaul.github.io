@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StatsTiles from '../components/StatsTiles.astro';
+import SelectedWork from '../components/SelectedWork.astro';
+import ArchitectureSection from '../components/ArchitectureSection.astro';
+import SkillsMatrix from '../components/SkillsMatrix.astro';
+import Certifications from '../components/Certifications.astro';
+import { availability } from '../config/availability';
+
+const title = 'Debraj Paul — In Dubai now (Job Seeker Visa) | Technical Lead II, Backend/Platform';
+const description = 'Debraj Paul, Technical Lead II — Backend/Platform (Node.js, TypeScript, AWS), is in Dubai now on a Job Seeker Visa — no sponsorship transfer needed. CV, LinkedIn, and GitHub, one tap away.';
+const ogTitle = 'Debraj Paul — In Dubai now, Job Seeker Visa';
+const url = 'https://debrajpaul.com/dubai';
+const ogImage = 'https://debrajpaul.com/dubai-og.png';
+const DUBAI_CV_HREF = '/Debraj_Paul_CV_Dubai.pdf';
+
+// Flip to true once the permit expires (~Dec 2026), alongside setting
+// availability.active = false in src/config/availability.ts. GitHub Pages
+// has no server-side 301s, so this is a client-side redirect — cards will
+// still resolve, just bounce straight to the generic root page.
+const REDIRECT_EXPIRED_CARD_TO_ROOT = false;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogTitle={ogTitle}
+  url={url}
+  ogImage={ogImage}
+  sectionLinksBase=""
+  cvHref={DUBAI_CV_HREF}
+  markdownHref={`${url}.md`}
+>
+  {REDIRECT_EXPIRED_CARD_TO_ROOT && (
+    <script is:inline>
+      window.location.replace('/');
+    </script>
+  )}
+  <section class="section-dubai-hero" id="dubai-hero" aria-labelledby="dubai-h1">
+    <div class="container dubai-copy">
+      <h1 id="dubai-h1">Debraj Paul</h1>
+      <p class="dubai-role">Technical Lead II &mdash; Backend / Platform</p>
+      <p class="dubai-stack">Node.js &middot; TypeScript &middot; AWS &middot; Distributed Systems</p>
+
+      {availability.active && (
+        <div class="dubai-availability">
+          <p>{availability.cardLine1}</p>
+          <p>{availability.cardLine2}</p>
+        </div>
+      )}
+
+      <div class="dubai-cta-row">
+        <a href={DUBAI_CV_HREF} class="dubai-cta dubai-cta-primary" rel="noopener" download>Download CV</a>
+        <a href="https://www.linkedin.com/in/debraj-paul" class="dubai-cta" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="https://github.com/debrajpaul" class="dubai-cta" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </div>
+
+      <p class="dubai-contact">
+        <a href="mailto:debraj@debrajpaul.com">debraj@debrajpaul.com</a>
+        <span aria-hidden="true"> &middot; </span>
+        <a href="https://wa.me/919435221271" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+        {availability.uaePhone && (
+          <>
+            <span aria-hidden="true"> &middot; </span>
+            <span>{availability.uaePhone}</span>
+          </>
+        )}
+      </p>
+
+      <p class="dubai-why">Already resident for the search, not flying in for it. No sponsorship transfer, no notice period from overseas.</p>
+    </div>
+  </section>
+
+  <StatsTiles />
+  <SelectedWork />
+  <ArchitectureSection />
+  <SkillsMatrix />
+  <Certifications />
+</BaseLayout>

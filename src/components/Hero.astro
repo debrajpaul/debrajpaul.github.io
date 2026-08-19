@@ -1,4 +1,5 @@
 ---
+import { availability } from '../config/availability';
 ---
 
 <section class="section-hero" id="hero" aria-labelledby="hero-h1">
@@ -6,7 +7,11 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Bengaluru, IN &middot; Remote-first globally &middot; Open to relocation</p>
+        {availability.active ? (
+          <p class="eyebrow">In {availability.location} {availability.windowLabel} &middot; Remote-first globally &middot; Open to relocation</p>
+        ) : (
+          <p class="eyebrow">Bengaluru, IN &middot; Remote-first globally &middot; Open to relocation</p>
+        )}
         <h1 id="hero-h1">Debraj Paul</h1>
         <p class="hero-tagline">Technical Lead II &mdash; Backend / Platform &middot; Node.js &middot; TypeScript &middot; AWS</p>
         <p class="hero-pos">

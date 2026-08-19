@@ -1,0 +1,8 @@
+---
+const beaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
+---
+
+{beaconToken && (
+  <script type="module" is:inline src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: beaconToken })}></script>
+)}
