@@ -1,17 +1,8 @@
 ---
-// Cloudflare Web Analytics — no cookies, no consent banner required.
-// Inert until PUBLIC_CF_BEACON_TOKEN is set (get the token from the
-// Cloudflare dashboard: Analytics & Logs → Web Analytics → add site).
-// Set it as a repo variable/secret consumed by the deploy workflow, or in
-// a local .env for testing. Nothing renders without it.
-const token = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
+const beaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
 ---
 
-{token && (
-  <script
-    is:inline
-    defer
-    src="https://static.cloudflareinsights.com/beacon.min.js"
-    data-cf-beacon={JSON.stringify({ token })}
-  />
+{beaconToken && (
+  <script type="module" is:inline src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: beaconToken })}></script>
 )}

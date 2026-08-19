@@ -31,6 +31,9 @@ interface Props {
   sectionLinksBase?: string;
   /** CV file the nav button and footer link point to. */
   cvHref?: string;
+  /** Clean-markdown twin of this page, advertised to crawlers/agents via
+   *  <link rel="alternate" type="text/markdown">. Also listed in /llms.txt. */
+  markdownHref?: string;
 }
 
 const {
@@ -38,11 +41,12 @@ const {
   description = 'Senior Platform / Backend Engineer with 11+ years building distributed, event-driven systems on AWS. Open to remote roles globally.',
   ogTitle = 'Debraj Paul — Technical Lead II, Backend / Platform',
   ogType = 'website',
-  url = 'https://debrajpaul.com/',
+  url = 'https://debrajpaul.com',
   jsonLd = DEFAULT_PERSON_JSONLD,
   ogImage,
   sectionLinksBase = '/',
   cvHref = '/Debraj_Paul_CV.pdf',
+  markdownHref,
 } = Astro.props;
 ---
 
@@ -54,6 +58,9 @@ const {
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={url} />
+  {markdownHref && (
+    <link rel="alternate" type="text/markdown" href={markdownHref} title="Markdown version" />
+  )}
   <meta property="og:type" content={ogType} />
   <meta property="og:url" content={url} />
   <meta property="og:title" content={ogTitle} />
