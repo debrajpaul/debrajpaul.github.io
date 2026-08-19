@@ -31,6 +31,8 @@ jobs:
         # dist/ as the Pages artifact — no separate upload-pages-artifact step needed.
         # node-version pinned to match package.json's engines.node (>=22.12.0) and
         # pnpm 11's own Node >=22.13 requirement — the action's own default is 20.
+        env:
+          PUBLIC_CF_BEACON_TOKEN: ${{ secrets.PUBLIC_CF_BEACON_TOKEN }}
 
   deploy:
     needs: build

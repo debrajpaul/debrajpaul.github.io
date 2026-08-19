@@ -23,7 +23,7 @@ if (diagramType === 'svg' && diagramFile) {
   diagramSvg = match?.[1];
 }
 
-const pageUrl = `https://debrajpaul.com/system-design/${slug}/`;
+const pageUrl = `https://debrajpaul.com/system-design/${slug}`;
 
 const techArticleJsonLd = {
   '@context': 'https://schema.org',
@@ -48,6 +48,7 @@ const techArticleJsonLd = {
   ogType="article"
   url={pageUrl}
   jsonLd={techArticleJsonLd}
+  markdownHref={`${pageUrl}.md`}
 >
   <section class="section-sd-detail" aria-labelledby="sd-detail-h">
     <div class="container">

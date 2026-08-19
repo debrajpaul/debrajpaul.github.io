@@ -69,6 +69,38 @@ below for the exact one-line changes.
 
 ---
 
+## Analytics
+
+Cloudflare Web Analytics — no cookies, no fingerprinting, no consent banner required.
+Wired sitewide (root, `/dubai`, every page) via `src/components/Analytics.astro`,
+included once in `BaseLayout.astro`. Renders the beacon `<script>` only when
+`PUBLIC_CF_BEACON_TOKEN` is set at build time; with no token, it emits nothing (no
+placeholder tag) and the build still succeeds — local dev and PR builds don't need it.
+
+The token comes from Cloudflare dashboard → Web Analytics → Manage site. It's a public
+site identifier, not a credential — it ships inside the page HTML either way — but it's
+still kept out of committed source for hygiene and easy rotation: set locally via `.env`
+(gitignored, see `.env.example`), and in CI via the `PUBLIC_CF_BEACON_TOKEN` repo secret
+consumed by `.github/workflows/deploy.yml`. Rotating it is a secret change in GitHub
+repo settings, not a code change.
+
+One token for the whole site, one combined view — root vs `/dubai` traffic is segmented
+in the Cloudflare dashboard using the **Path** filter (`/` and its subpaths vs exactly
+`/dubai`), not by a second site/token or any custom event. Web Analytics has no
+tagging API to build against.
+
+**Canonical URL form: no trailing slash.** Every page — `/dubai`,
+`/system-design/{slug}`, root — has exactly one resolvable URL. This is load-bearing for
+the Path filter above: GitHub Pages has no server-side redirects, and with Astro's
+default `directory` build output, `/foo` and `/foo/` both silently resolve to the same
+`foo/index.html` with a 200, splitting every page's traffic across two rows in the
+dashboard. `build: { format: 'file' }` (see `astro.config.mjs`) avoids that — the
+trailing-slash form has no matching file and genuinely 404s. `/dubai`'s canonical is
+**`https://debrajpaul.com/dubai`** — that exact string is the one printed on the QR
+code. Don't add a trailing slash when linking to it from anywhere.
+
+---
+
 ## /dubai — campaign landing
 
 `src/pages/dubai.astro` is a QR-code landing page for a physical visiting card handed
