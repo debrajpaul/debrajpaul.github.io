@@ -77,6 +77,7 @@ export const profile = {
   ],
 
   openTo:
-    'Senior / Staff / Principal Engineer · Technical Architect. ' +
-    'Remote-first globally · Hybrid · Open to relocation.',
+    'Senior Staff / Principal Engineer · Technical Architect. ' +
+    'Remote-first globally · Hybrid · Hybrid globally with employer-sponsored relocation. ' +
+    'Comfortable across time zones.',
 };
