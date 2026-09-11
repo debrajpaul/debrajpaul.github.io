@@ -9,8 +9,8 @@ export const availability = {
   // Set to "+971 5X XXX XXXX" once a UAE SIM is active (~25 Sep 2026).
   // Renders nowhere while null — no placeholder, no "TBA".
   uaePhone: null as string | null,
-  // Provisional until visa validity dates are confirmed.
-  windowLabel: 'Sep–Dec 2026',
+  // Confirmed: 3-month visa window.
+  windowLabel: '25 Sep – 25 Dec 2026',
   // Printed verbatim on the physical card handed out at AWS Summit Dubai.
   // Must match word for word — do not edit without reprinting the card.
   cardLine1: 'In Dubai now — Job Seeker Visa',
