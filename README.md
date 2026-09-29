@@ -164,6 +164,7 @@ pnpm dev        # local dev server, localhost:4321
 pnpm astro check
 pnpm build      # production build to dist/
 pnpm preview    # serve the production build locally
+
 ```
 
 ---
