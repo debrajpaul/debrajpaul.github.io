@@ -187,6 +187,7 @@ debrajpaul.github.io/
 │   │   └── llms.txt.ts
 │   └── assets/diagrams/         # hand-drawn SVGs for the original deep-dives
 ├── public/                      # favicons, Debraj_Paul_CV.pdf
+Debraj_Paul_CV_Dubai.pdf
 ├── .github/workflows/           # checks.yml, deploy.yml
 ├── CNAME
 ├── LICENSE
